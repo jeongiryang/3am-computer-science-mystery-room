@@ -3,8 +3,7 @@
 .import/
 
 # Exported builds and packaged output
-builds/*
-!builds/.gitkeep
+builds/
 *.exe
 *.pck
 *.zip

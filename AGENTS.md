@@ -69,7 +69,8 @@ For the initial setup task:
 - Create the required folder structure.
 - Create documentation files.
 - Create a Godot 4 compatible `.gitignore`.
-- Create placeholder `.gitkeep` files for empty folders.
+- Create placeholder `.gitkeep` files for empty folders that should be tracked by Git.
+- Do not create a `.gitkeep` file inside `builds/`, because `builds/` is a local build output folder and should not be tracked by Git.
 - Create a minimal `project.godot` file if it does not already exist.
 - Do not create gameplay scenes yet.
 - Do not create gameplay scripts yet.
@@ -112,7 +113,8 @@ docs/
 screenshots/
 builds/
 
-Use `.gitkeep` files where needed so empty folders can be tracked by Git.
+Use `.gitkeep` files where needed so ordinary empty folders can be tracked by Git.
+Do not use `.gitkeep` for `builds/`; `builds/` is a build output folder and must remain ignored by Git.
 
 ---
 
@@ -407,7 +409,8 @@ The first milestone is complete when:
 - docs/game-design-document.md exists
 - docs/development-log.md exists
 - docs/asset-credits.md exists
-- empty folders are tracked with `.gitkeep`
+- ordinary empty folders are tracked with `.gitkeep`
+- `builds/` remains untracked because it is reserved for build output
 - no gameplay logic has been implemented
 - no external assets have been added
 - no build files have been generated
