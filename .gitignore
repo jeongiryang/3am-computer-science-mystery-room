@@ -1,0 +1,19 @@
+# Godot generated files
+.godot/
+.import/
+
+# Exported builds and packaged output
+builds/*
+!builds/.gitkeep
+*.exe
+*.pck
+*.zip
+
+# Temporary and backup files
+*.tmp
+*.bak
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/

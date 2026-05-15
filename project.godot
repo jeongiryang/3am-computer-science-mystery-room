@@ -1,0 +1,8 @@
+; Engine configuration file.
+; This file is compatible with Godot 4.x.
+
+config_version=5
+
+[application]
+
+config/name="3AM Computer Science: Mystery Room"
