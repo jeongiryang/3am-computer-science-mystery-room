@@ -379,6 +379,33 @@ Do not delete branches unless explicitly requested.
 
 ---
 
+## AI Simulation Log Rules
+
+After each Codex-assisted task, add one Markdown log file under:
+
+docs/ai-simulation-logs/
+
+Use the next sequential number after the existing logs.
+
+File name format:
+
+0008-task-name.md
+0009-task-name.md
+
+Each log file must use this structure:
+
+- Purpose
+- User prompt summary
+- Codex response summary
+- Changed files
+- Verification details
+- Commit message
+- Next task
+
+Keep the log factual. Do not claim that untested behavior was verified. If a test was not actually run, write that manual testing is required.
+
+---
+
 ## Verification Rules
 
 After making changes, report:
