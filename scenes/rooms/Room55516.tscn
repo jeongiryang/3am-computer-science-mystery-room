@@ -1,7 +1,21 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=19 format=3]
 
 [ext_resource type="PackedScene" path="res://scenes/objects/InspectableObject.tscn" id="1_inspectable_object"]
 [ext_resource type="PackedScene" path="res://scenes/objects/TransitionZone.tscn" id="2_transition_zone"]
+[ext_resource type="Texture2D" path="res://assets/art/rooms/room55516/room_floor.svg" id="3_floor"]
+[ext_resource type="Texture2D" path="res://assets/art/rooms/room55516/wall_panel_horizontal.svg" id="4_wall_h"]
+[ext_resource type="Texture2D" path="res://assets/art/rooms/room55516/wall_panel_vertical.svg" id="5_wall_v"]
+[ext_resource type="Texture2D" path="res://assets/art/effects/fluorescent_light.svg" id="6_fluorescent_light"]
+[ext_resource type="Texture2D" path="res://assets/art/effects/monitor_glow.svg" id="7_monitor_glow"]
+[ext_resource type="Texture2D" path="res://assets/art/objects/room55516/computer_desk.svg" id="8_computer_desk"]
+[ext_resource type="Texture2D" path="res://assets/art/objects/room55516/monitor.svg" id="9_monitor"]
+[ext_resource type="Texture2D" path="res://assets/art/objects/room55516/blackboard.svg" id="10_blackboard"]
+[ext_resource type="Texture2D" path="res://assets/art/objects/room55516/desk.svg" id="11_desk"]
+[ext_resource type="Texture2D" path="res://assets/art/objects/room55516/paper_note.svg" id="12_paper_note"]
+[ext_resource type="Texture2D" path="res://assets/art/objects/room55516/locker.svg" id="13_locker"]
+[ext_resource type="Texture2D" path="res://assets/art/objects/room55516/projector.svg" id="14_projector"]
+[ext_resource type="Texture2D" path="res://assets/art/objects/room55516/attendance_sheet.svg" id="15_attendance_sheet"]
+[ext_resource type="Texture2D" path="res://assets/art/objects/room55516/exit_door.svg" id="16_exit_door"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_horizontal_wall"]
 size = Vector2(1040, 32)
@@ -16,10 +30,14 @@ position = Vector2(640, 360)
 color = Color(0.12, 0.14, 0.17, 1)
 polygon = PackedVector2Array(-520, -280, 520, -280, 520, 280, -520, 280)
 
+[node name="AssetFloor" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("3_floor")
+
 [node name="FloorDetails" type="Node2D" parent="."]
 
 [node name="FloorBase" type="Polygon2D" parent="FloorDetails"]
-color = Color(0.085, 0.105, 0.125, 1)
+color = Color(0.085, 0.105, 0.125, 0.28)
 polygon = PackedVector2Array(120, 80, 1160, 80, 1160, 640, 120, 640)
 
 [node name="TileVertical01" type="Line2D" parent="FloorDetails"]
@@ -99,6 +117,26 @@ default_color = Color(0.18, 0.22, 0.26, 0.34)
 
 [node name="WallVisuals" type="Node2D" parent="."]
 
+[node name="TopWallAsset" type="Sprite2D" parent="WallVisuals"]
+z_index = 1
+position = Vector2(640, 72)
+texture = ExtResource("4_wall_h")
+
+[node name="BottomWallAsset" type="Sprite2D" parent="WallVisuals"]
+z_index = 1
+position = Vector2(640, 648)
+texture = ExtResource("4_wall_h")
+
+[node name="LeftWallAsset" type="Sprite2D" parent="WallVisuals"]
+z_index = 1
+position = Vector2(112, 360)
+texture = ExtResource("5_wall_v")
+
+[node name="RightWallAsset" type="Sprite2D" parent="WallVisuals"]
+z_index = 1
+position = Vector2(1168, 360)
+texture = ExtResource("5_wall_v")
+
 [node name="TopWallSurface" type="Polygon2D" parent="WallVisuals"]
 color = Color(0.055, 0.07, 0.085, 1)
 polygon = PackedVector2Array(104, 48, 1176, 48, 1176, 96, 104, 96)
@@ -119,6 +157,11 @@ polygon = PackedVector2Array(1144, 64, 1192, 64, 1192, 656, 1144, 656)
 color = Color(0.74, 0.92, 0.96, 0.1)
 polygon = PackedVector2Array(470, 82, 810, 82, 870, 250, 410, 250)
 
+[node name="FluorescentLightAsset" type="Sprite2D" parent="WallVisuals"]
+z_index = 1
+position = Vector2(640, 152)
+texture = ExtResource("6_fluorescent_light")
+
 [node name="CeilingLight" type="Polygon2D" parent="WallVisuals"]
 color = Color(0.62, 0.82, 0.86, 0.62)
 polygon = PackedVector2Array(500, 96, 780, 96, 780, 108, 500, 108)
@@ -126,6 +169,10 @@ polygon = PackedVector2Array(500, 96, 780, 96, 780, 108, 500, 108)
 [node name="ComputerLightSpill" type="Polygon2D" parent="WallVisuals"]
 color = Color(0.08, 0.5, 0.56, 0.14)
 polygon = PackedVector2Array(238, 156, 402, 156, 470, 330, 172, 330)
+
+[node name="MonitorGlowAsset" type="Sprite2D" parent="WallVisuals"]
+position = Vector2(320, 248)
+texture = ExtResource("7_monitor_glow")
 
 [node name="BaseboardTop" type="Line2D" parent="WallVisuals"]
 points = PackedVector2Array(128, 98, 1152, 98)
@@ -226,6 +273,20 @@ visual_color = Color(0.18, 0.43, 0.78, 1)
 visual_alpha = 0.12
 show_object_label = false
 
+[node name="AssetMonitorGlow" type="Sprite2D" parent="Inspectables/Computer"]
+z_index = 1
+position = Vector2(0, -20)
+texture = ExtResource("7_monitor_glow")
+
+[node name="AssetComputerDesk" type="Sprite2D" parent="Inspectables/Computer"]
+z_index = 2
+texture = ExtResource("8_computer_desk")
+
+[node name="AssetMonitor" type="Sprite2D" parent="Inspectables/Computer"]
+z_index = 3
+position = Vector2(0, -42)
+texture = ExtResource("9_monitor")
+
 [node name="ObjectShadow" type="Polygon2D" parent="Inspectables/Computer"]
 z_index = -1
 color = Color(0, 0, 0, 0.28)
@@ -289,6 +350,10 @@ visual_color = Color(0.08, 0.36, 0.22, 1)
 visual_alpha = 0.1
 show_object_label = false
 
+[node name="AssetBlackboard" type="Sprite2D" parent="Inspectables/Blackboard"]
+z_index = 2
+texture = ExtResource("10_blackboard")
+
 [node name="BoardFrame" type="Polygon2D" parent="Inspectables/Blackboard"]
 color = Color(0.035, 0.045, 0.045, 1)
 polygon = PackedVector2Array(-158, -48, 158, -48, 158, 48, -158, 48)
@@ -336,6 +401,15 @@ visual_color = Color(0.48, 0.31, 0.18, 1)
 visual_alpha = 0.1
 show_object_label = false
 
+[node name="AssetDesk" type="Sprite2D" parent="Inspectables/Desk"]
+z_index = 2
+texture = ExtResource("11_desk")
+
+[node name="AssetPaperNote" type="Sprite2D" parent="Inspectables/Desk"]
+z_index = 3
+position = Vector2(36, -18)
+texture = ExtResource("12_paper_note")
+
 [node name="ObjectShadow" type="Polygon2D" parent="Inspectables/Desk"]
 z_index = -1
 color = Color(0, 0, 0, 0.24)
@@ -380,6 +454,10 @@ inspection_text = "사물함은 잠겨 있다. 비밀번호가 필요한 것 같
 visual_color = Color(0.42, 0.43, 0.48, 1)
 visual_alpha = 0.1
 show_object_label = false
+
+[node name="AssetLocker" type="Sprite2D" parent="Inspectables/Locker"]
+z_index = 2
+texture = ExtResource("13_locker")
 
 [node name="LockerShadow" type="Polygon2D" parent="Inspectables/Locker"]
 z_index = -1
@@ -430,6 +508,10 @@ visual_color = Color(0.58, 0.18, 0.18, 1)
 visual_alpha = 0.14
 show_object_label = false
 
+[node name="AssetExitDoor" type="Sprite2D" parent="Inspectables/ExitDoor"]
+z_index = 2
+texture = ExtResource("16_exit_door")
+
 [node name="DoorFrame" type="Polygon2D" parent="Inspectables/ExitDoor"]
 color = Color(0.08, 0.07, 0.075, 1)
 polygon = PackedVector2Array(-54, -104, 54, -104, 54, 104, -54, 104)
@@ -475,6 +557,10 @@ visual_color = Color(0.2, 0.22, 0.28, 1)
 visual_alpha = 0.1
 show_object_label = false
 
+[node name="AssetProjector" type="Sprite2D" parent="Inspectables/Projector"]
+z_index = 2
+texture = ExtResource("14_projector")
+
 [node name="ProjectorBody" type="Polygon2D" parent="Inspectables/Projector"]
 color = Color(0.12, 0.14, 0.16, 1)
 polygon = PackedVector2Array(-50, -22, 50, -22, 54, 20, -46, 24)
@@ -514,6 +600,10 @@ state_key = "has_seen_55516_attendance_sheet"
 visual_color = Color(0.72, 0.68, 0.52, 1)
 visual_alpha = 0.12
 show_object_label = false
+
+[node name="AssetAttendanceSheet" type="Sprite2D" parent="Inspectables/AttendanceSheet"]
+z_index = 2
+texture = ExtResource("15_attendance_sheet")
 
 [node name="PaperShadow" type="Polygon2D" parent="Inspectables/AttendanceSheet"]
 z_index = -1
