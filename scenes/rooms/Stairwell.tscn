@@ -1,0 +1,92 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/objects/InspectableObject.tscn" id="1_inspectable_object"]
+[ext_resource type="PackedScene" path="res://scenes/objects/TransitionZone.tscn" id="2_transition_zone"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_horizontal_wall"]
+size = Vector2(1040, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vertical_wall"]
+size = Vector2(32, 560)
+
+[node name="Stairwell" type="Node2D"]
+
+[node name="RoomArea" type="Polygon2D" parent="."]
+position = Vector2(640, 360)
+color = Color(0.08, 0.1, 0.12, 1)
+polygon = PackedVector2Array(-520, -280, 520, -280, 520, 280, -520, 280)
+
+[node name="RoomLabel" type="Label" parent="."]
+offset_left = 128.0
+offset_top = 88.0
+offset_right = 620.0
+offset_bottom = 144.0
+text = "층 이동 구간\n5층에서 1층으로 내려가는 어두운 계단"
+autowrap_mode = 3
+
+[node name="StairShape" type="Polygon2D" parent="."]
+position = Vector2(640, 360)
+color = Color(0.16, 0.18, 0.21, 1)
+polygon = PackedVector2Array(-300, -120, 300, -120, 300, -60, -220, -60, -220, 0, 220, 0, 220, 60, -300, 60)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+
+[node name="TopWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(640, 64)
+shape = SubResource("RectangleShape2D_horizontal_wall")
+
+[node name="BottomWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(640, 656)
+shape = SubResource("RectangleShape2D_horizontal_wall")
+
+[node name="LeftWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(104, 360)
+shape = SubResource("RectangleShape2D_vertical_wall")
+
+[node name="RightWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1176, 360)
+shape = SubResource("RectangleShape2D_vertical_wall")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="FromDepartmentOffice" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(220, 500)
+
+[node name="FromRoom55110" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(1060, 220)
+
+[node name="Inspectables" type="Node2D" parent="."]
+
+[node name="EmergencyLight" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(640, 180)
+object_id = "stairwell_emergency_light"
+object_name = "Emergency Light"
+inspection_text = "비상등은 정상적으로 켜져 있지만, 주변 공기는 유난히 차갑다."
+visual_color = Color(0.62, 0.12, 0.12, 1)
+
+[node name="FloorSign" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(820, 460)
+object_id = "stairwell_floor_sign"
+object_name = "Floor Sign"
+inspection_text = "층수 표지판의 1F 표시 아래에 55110 방향 화살표가 덧그려져 있다."
+visual_color = Color(0.32, 0.36, 0.42, 1)
+
+[node name="Transitions" type="Node2D" parent="."]
+
+[node name="ToDepartmentOffice" parent="Transitions" instance=ExtResource("2_transition_zone")]
+position = Vector2(200, 560)
+target_room_id = "department_office"
+target_spawn_name = "FromStairwell"
+transition_name = "과사무실"
+prompt_text = "과사무실로 돌아감."
+visual_color = Color(0.3, 0.32, 0.34, 1)
+
+[node name="ToRoom55110" parent="Transitions" instance=ExtResource("2_transition_zone")]
+position = Vector2(1060, 160)
+target_room_id = "room_55110"
+target_spawn_name = "FromStairwell"
+transition_name = "55110"
+prompt_text = "1층 55110 강의실로 이동함."
+visual_color = Color(0.18, 0.42, 0.54, 1)

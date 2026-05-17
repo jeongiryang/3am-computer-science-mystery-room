@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/objects/InspectableObject.tscn" id="1_inspectable_object"]
+[ext_resource type="PackedScene" path="res://scenes/objects/TransitionZone.tscn" id="2_transition_zone"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_horizontal_wall"]
+size = Vector2(1040, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vertical_wall"]
+size = Vector2(32, 560)
+
+[node name="ServerRoom" type="Node2D"]
+
+[node name="RoomArea" type="Polygon2D" parent="."]
+position = Vector2(640, 360)
+color = Color(0.05, 0.08, 0.11, 1)
+polygon = PackedVector2Array(-520, -280, 520, -280, 520, 280, -520, 280)
+
+[node name="RoomLabel" type="Label" parent="."]
+offset_left = 128.0
+offset_top = 88.0
+offset_right = 680.0
+offset_bottom = 144.0
+text = "서버실 | 최종 접근 제한 공간\n차가운 시스템 메시지가 남아 있는 후속작 연결 공간"
+autowrap_mode = 3
+
+[node name="ServerLight" type="Polygon2D" parent="."]
+position = Vector2(640, 360)
+color = Color(0.04, 0.28, 0.36, 0.55)
+polygon = PackedVector2Array(-360, -160, 360, -160, 360, 160, -360, 160)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+
+[node name="TopWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(640, 64)
+shape = SubResource("RectangleShape2D_horizontal_wall")
+
+[node name="BottomWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(640, 656)
+shape = SubResource("RectangleShape2D_horizontal_wall")
+
+[node name="LeftWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(104, 360)
+shape = SubResource("RectangleShape2D_vertical_wall")
+
+[node name="RightWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1176, 360)
+shape = SubResource("RectangleShape2D_vertical_wall")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="FromLobby" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(200, 360)
+
+[node name="Inspectables" type="Node2D" parent="."]
+
+[node name="ServerRack" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(500, 300)
+object_id = "server_room_rack"
+object_name = "Server Rack"
+inspection_text = "서버랙의 상태등은 모두 정상처럼 보이지만, 팬 소리는 지나치게 낮게 울린다."
+visual_color = Color(0.08, 0.34, 0.44, 1)
+
+[node name="AccessLog" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(780, 300)
+object_id = "server_room_access_log"
+object_name = "Access Log"
+inspection_text = "접근 로그에는 3층 서버실 출입 기록과 알 수 없는 사용자명이 남아 있다."
+visual_color = Color(0.14, 0.54, 0.62, 1)
+
+[node name="Transitions" type="Node2D" parent="."]
+
+[node name="ToLobby" parent="Transitions" instance=ExtResource("2_transition_zone")]
+position = Vector2(200, 560)
+target_room_id = "main_building_lobby"
+target_spawn_name = "FromServerRoom"
+transition_name = "로비"
+prompt_text = "공과대학 메인 건물 내부로 돌아감."
+visual_color = Color(0.14, 0.42, 0.52, 1)

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/objects/TransitionZone.gd" id="1_transition_script"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_transition"]
+size = Vector2(128, 72)
+
+[node name="TransitionZone" type="Area2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_transition_script")
+
+[node name="Visual" type="Polygon2D" parent="."]
+color = Color(0.16, 0.56, 0.66, 1)
+polygon = PackedVector2Array(-64, -36, 64, -36, 64, 36, -64, 36)
+
+[node name="ZoneLabel" type="Label" parent="."]
+offset_left = -96.0
+offset_top = 42.0
+offset_right = 96.0
+offset_bottom = 86.0
+text = ""
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_transition")
