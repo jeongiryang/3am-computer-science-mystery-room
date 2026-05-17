@@ -14,6 +14,7 @@ const ROOM_SCENES := {
 @export var initial_spawn_name: String = "Default"
 
 var current_room: Node2D
+var is_changing_room := false
 
 @onready var room_container: Node2D = $RoomContainer
 @onready var player: CharacterBody2D = $Player
@@ -23,6 +24,9 @@ func _ready() -> void:
 	change_room(initial_room_id, initial_spawn_name)
 
 func change_room(room_id: String, spawn_name: String = "Default") -> void:
+	if is_changing_room:
+		return
+
 	if not ROOM_SCENES.has(room_id):
 		push_warning("Unknown room id: %s" % room_id)
 		return
@@ -32,6 +36,7 @@ func change_room(room_id: String, spawn_name: String = "Default") -> void:
 		push_warning("Could not load room scene: %s" % ROOM_SCENES[room_id])
 		return
 
+	is_changing_room = true
 	_close_open_ui()
 	_clear_player_interactables()
 
@@ -42,6 +47,7 @@ func change_room(room_id: String, spawn_name: String = "Default") -> void:
 	current_room = room_scene.instantiate() as Node2D
 	room_container.add_child(current_room)
 	_move_player_to_spawn(spawn_name)
+	is_changing_room = false
 
 func _move_player_to_spawn(spawn_name: String) -> void:
 	if current_room == null or player == null:
