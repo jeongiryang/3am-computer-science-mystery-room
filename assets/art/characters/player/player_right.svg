@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="72" viewBox="0 0 64 72">
+  <defs>
+    <linearGradient id="coat" x1="49" y1="0" x2="14" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#596a72"/>
+      <stop offset="1" stop-color="#17212a"/>
+    </linearGradient>
+    <linearGradient id="hair" x1="52" y1="0" x2="22" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2b343d"/>
+      <stop offset="1" stop-color="#060a0e"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="66" rx="21" ry="5" fill="#000000" opacity="0.4"/>
+  <path d="M46 31 L20 30 L14 60 L49 61 Z" fill="#080d12" opacity="0.94"/>
+  <path d="M45 30 L21 29 L16 58 L48 59 Z" fill="url(#coat)" stroke="#8aa3a6" stroke-width="1.5"/>
+  <path d="M44 33 L34 36 L34 57 L48 58 Z" fill="#1b2830" opacity="0.8"/>
+  <path d="M24 32 L16 58 L29 58 L30 37 Z" fill="#0d151e" opacity="0.9"/>
+  <path d="M43 32 L55 44" stroke="#50616a" stroke-width="5.6" stroke-linecap="round"/>
+  <path d="M22 31 L13 47" stroke="#2f3e48" stroke-width="5.6" stroke-linecap="round"/>
+  <path d="M40 58 L44 70" stroke="#0a1118" stroke-width="5.2" stroke-linecap="round"/>
+  <path d="M26 58 L22 70" stroke="#0a1118" stroke-width="5.2" stroke-linecap="round"/>
+  <circle cx="36" cy="20" r="12" fill="#aeb0aa" stroke="#070b10" stroke-width="1.8"/>
+  <path d="M47 20 C47 10 38 4 27 9 C24 13 26 22 31 26 C36 24 42 23 47 20 Z" fill="url(#hair)"/>
+  <circle cx="41" cy="21" r="1.3" fill="#17242c"/>
+  <path d="M44 25 C41 27 37 27 33 25" stroke="#28343a" stroke-width="1.0" fill="none" opacity="0.45"/>
+  <rect x="30" y="37" width="6" height="10" rx="1" fill="#0d2026" stroke="#78d7d8" stroke-width="0.8"/>
+  <path d="M26 42 H42" stroke="#7ee4e6" stroke-width="1.4" opacity="0.5"/>
+</svg>

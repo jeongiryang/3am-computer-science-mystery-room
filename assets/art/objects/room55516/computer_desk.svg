@@ -1,14 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="180" height="130" viewBox="0 0 180 130">
-  <ellipse cx="86" cy="112" rx="78" ry="11" fill="#000000" opacity="0.32"/>
-  <path d="M18 60 L158 60 L168 98 L8 98 Z" fill="#202a31" stroke="#6f8388" stroke-width="2.2"/>
-  <path d="M18 60 L158 60 L142 74 L32 74 Z" fill="#354249" opacity="0.86"/>
-  <path d="M26 98 L42 98 L38 125 L22 125 Z" fill="#0d1218"/>
-  <path d="M134 98 L150 98 L156 125 L140 125 Z" fill="#0d1218"/>
-  <path d="M28 62 H148" stroke="#84a2a5" stroke-width="1.2" opacity="0.38"/>
-  <rect x="42" y="80" width="74" height="12" rx="2" fill="#0b1015" stroke="#5b6e74" stroke-width="1"/>
-  <g stroke="#95a9aa" stroke-width="1" opacity="0.5">
-    <path d="M49 84 H108"/><path d="M52 88 H102"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="190" height="150" viewBox="0 0 190 150">
+  <defs>
+    <linearGradient id="top" x1="0" y1="42" x2="0" y2="108" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3f4d54"/>
+      <stop offset="1" stop-color="#1b262e"/>
+    </linearGradient>
+    <linearGradient id="front" x1="0" y1="78" x2="0" y2="122" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#26343c"/>
+      <stop offset="1" stop-color="#10181f"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="92" cy="134" rx="82" ry="10" fill="#000000" opacity="0.36"/>
+  <path d="M16 58 L166 58 L178 96 L6 96 Z" fill="url(#top)" stroke="#8aa0a4" stroke-width="2.3"/>
+  <path d="M6 96 L178 96 L160 120 L22 120 Z" fill="url(#front)" stroke="#394d55" stroke-width="1.5"/>
+  <path d="M28 68 H148" stroke="#a6b9ba" stroke-width="1.2" opacity="0.38"/>
+  <path d="M24 120 L42 120 L36 148 L18 148 Z" fill="#0a1016"/>
+  <path d="M136 120 L154 120 L164 148 L144 148 Z" fill="#0a1016"/>
+  <path d="M42 84 L120 84 L132 96 L30 96 Z" fill="#0b1117" stroke="#5d7076" stroke-width="1"/>
+  <g stroke="#a5b8b9" stroke-width="1" opacity="0.46">
+    <path d="M50 88 H112"/><path d="M54 92 H106"/><path d="M60 96 H122"/>
   </g>
-  <path d="M126 76 C145 76 156 82 156 94 C145 97 132 96 120 92 C120 84 122 79 126 76 Z" fill="#12191f" stroke="#3f5158" stroke-width="1"/>
-  <path d="M126 92 C102 108 76 102 56 112" stroke="#091016" stroke-width="2" fill="none" opacity="0.62"/>
+  <path d="M130 78 C150 76 164 84 166 98 C154 104 136 102 122 96 C122 86 124 81 130 78 Z" fill="#121a21" stroke="#53666c" stroke-width="1.2"/>
+  <path d="M128 98 C108 118 76 112 52 128" stroke="#050b10" stroke-width="2.4" fill="none" opacity="0.58"/>
+  <path d="M44 104 H142" stroke="#5c747a" stroke-width="1" opacity="0.34"/>
 </svg>
