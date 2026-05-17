@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3]
+[gd_scene load_steps=20 format=3]
 
 [ext_resource type="PackedScene" path="res://scenes/objects/InspectableObject.tscn" id="1_inspectable_object"]
 [ext_resource type="PackedScene" path="res://scenes/objects/TransitionZone.tscn" id="2_transition_zone"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" path="res://assets/art/objects/room55516/projector.svg" id="14_projector"]
 [ext_resource type="Texture2D" path="res://assets/art/objects/room55516/attendance_sheet.svg" id="15_attendance_sheet"]
 [ext_resource type="Texture2D" path="res://assets/art/objects/room55516/exit_door.svg" id="16_exit_door"]
+[ext_resource type="Texture2D" path="res://assets/art/rooms/room55516/corridor_threshold.svg" id="17_corridor_threshold"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_horizontal_wall"]
 size = Vector2(1040, 32)
@@ -287,11 +288,13 @@ texture = ExtResource("7_monitor_glow")
 [node name="AssetComputerDesk" type="Sprite2D" parent="Inspectables/Computer"]
 z_index = 2
 position = Vector2(0, 10)
+scale = Vector2(1.05, 1.05)
 texture = ExtResource("8_computer_desk")
 
 [node name="AssetMonitor" type="Sprite2D" parent="Inspectables/Computer"]
 z_index = 3
-position = Vector2(0, -46)
+position = Vector2(0, -50)
+scale = Vector2(1.04, 1.04)
 texture = ExtResource("9_monitor")
 
 [node name="ObjectShadow" type="Polygon2D" parent="Inspectables/Computer"]
@@ -410,13 +413,13 @@ show_object_label = false
 
 [node name="AssetDesk" type="Sprite2D" parent="Inspectables/Desk"]
 z_index = 2
-scale = Vector2(0.94, 0.94)
+scale = Vector2(1, 1)
 texture = ExtResource("11_desk")
 
 [node name="AssetPaperNote" type="Sprite2D" parent="Inspectables/Desk"]
 z_index = 3
-position = Vector2(38, -24)
-scale = Vector2(0.82, 0.82)
+position = Vector2(38, -26)
+scale = Vector2(0.9, 0.9)
 texture = ExtResource("12_paper_note")
 
 [node name="ObjectShadow" type="Polygon2D" parent="Inspectables/Desk"]
@@ -466,7 +469,7 @@ show_object_label = false
 
 [node name="AssetLocker" type="Sprite2D" parent="Inspectables/Locker"]
 z_index = 2
-scale = Vector2(0.94, 0.94)
+scale = Vector2(1, 1)
 texture = ExtResource("13_locker")
 
 [node name="LockerShadow" type="Polygon2D" parent="Inspectables/Locker"]
@@ -520,7 +523,7 @@ show_object_label = false
 
 [node name="AssetExitDoor" type="Sprite2D" parent="Inspectables/ExitDoor"]
 z_index = 2
-scale = Vector2(0.96, 0.96)
+scale = Vector2(1, 1)
 texture = ExtResource("16_exit_door")
 
 [node name="DoorFrame" type="Polygon2D" parent="Inspectables/ExitDoor"]
@@ -570,7 +573,7 @@ show_object_label = false
 
 [node name="AssetProjector" type="Sprite2D" parent="Inspectables/Projector"]
 z_index = 2
-scale = Vector2(0.9, 0.9)
+scale = Vector2(0.98, 0.98)
 texture = ExtResource("14_projector")
 
 [node name="ProjectorBody" type="Polygon2D" parent="Inspectables/Projector"]
@@ -615,7 +618,7 @@ show_object_label = false
 
 [node name="AssetAttendanceSheet" type="Sprite2D" parent="Inspectables/AttendanceSheet"]
 z_index = 2
-scale = Vector2(0.86, 0.86)
+scale = Vector2(0.94, 0.94)
 texture = ExtResource("15_attendance_sheet")
 
 [node name="PaperShadow" type="Polygon2D" parent="Inspectables/AttendanceSheet"]
@@ -663,4 +666,20 @@ target_room_id = "hallway_5f"
 target_spawn_name = "FromRoom55516"
 transition_name = "5층 복도"
 prompt_text = "실습실 밖 5층 복도로 이동함."
-visual_color = Color(0.16, 0.48, 0.58, 1)
+visual_color = Color(0.08, 0.24, 0.28, 0.28)
+
+[node name="CorridorThresholdAsset" type="Sprite2D" parent="Transitions/ToHallway5F"]
+z_index = 2
+position = Vector2(0, 4)
+texture = ExtResource("17_corridor_threshold")
+
+[node name="ThresholdLightLine" type="Line2D" parent="Transitions/ToHallway5F"]
+z_index = 3
+points = PackedVector2Array(-80, 36, 80, 36)
+width = 2.0
+default_color = Color(0.52, 0.9, 0.88, 0.42)
+
+[node name="ThresholdShadow" type="Polygon2D" parent="Transitions/ToHallway5F"]
+z_index = 1
+color = Color(0, 0, 0, 0.24)
+polygon = PackedVector2Array(-106, 44, 106, 44, 78, 62, -78, 62)

@@ -275,3 +275,5 @@ Room55516 에셋 기반 적용 1차에서는 `assets/art/characters/player/`, `a
 적용 방식은 기존 CollisionShape2D와 Area2D를 유지하고, scene의 시각 요소를 Sprite2D 기반 Texture2D로 보강하는 방식임. 이 방식은 기존 상호작용 로직을 보존하면서 Player와 주요 오브젝트가 단순 도형으로 보이는 문제를 줄이는 데 목적이 있음.
 
 Room55516 에셋 QA polish 단계에서는 기존 SVG를 유지하되 Player, floor, light, monitor glow, 주요 오브젝트의 stroke, shadow, highlight, scene scale을 조정함. Godot이 생성한 실제 게임 에셋용 `.svg.import` sidecar는 해당 SVG와 함께 추적 대상으로 판단함.
+
+Room55516 비주얼 오버홀 1차에서는 Player sprite를 `down`, `up`, `left`, `right` 방향별 SVG로 분리하고, 이동 방향에 따라 texture를 교체하는 방식으로 적용함. 주요 오브젝트 SVG는 윗면/측면/전면, 그림자, 하이라이트를 보강해 단순 사각형 느낌을 줄이는 기준선으로 사용함.

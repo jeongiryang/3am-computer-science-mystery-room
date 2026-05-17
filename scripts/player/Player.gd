@@ -1,14 +1,22 @@
 extends CharacterBody2D
 
+const PLAYER_TEXTURE_DOWN := preload("res://assets/art/characters/player/player_down.svg")
+const PLAYER_TEXTURE_UP := preload("res://assets/art/characters/player/player_up.svg")
+const PLAYER_TEXTURE_LEFT := preload("res://assets/art/characters/player/player_left.svg")
+const PLAYER_TEXTURE_RIGHT := preload("res://assets/art/characters/player/player_right.svg")
+
 @export var move_speed: float = 220.0
 
 var nearby_interactables: Array[Area2D] = []
+var last_facing_direction := Vector2.DOWN
 
+@onready var player_sprite: Sprite2D = $PlayerSprite
 @onready var interaction_area: Area2D = $InteractionArea
 
 func _ready() -> void:
 	interaction_area.area_entered.connect(_on_interaction_area_area_entered)
 	interaction_area.area_exited.connect(_on_interaction_area_area_exited)
+	_update_facing_texture(last_facing_direction)
 
 func _physics_process(_delta: float) -> void:
 	if _is_ui_blocking():
@@ -17,6 +25,9 @@ func _physics_process(_delta: float) -> void:
 		return
 
 	var input_direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	if input_direction != Vector2.ZERO:
+		_update_facing_texture(input_direction)
+
 	velocity = input_direction * move_speed
 	move_and_slide()
 
@@ -108,3 +119,18 @@ func _is_dialogue_open() -> bool:
 
 func _is_ui_blocking() -> bool:
 	return _is_dialogue_open() or _is_password_input_open()
+
+func _update_facing_texture(direction: Vector2) -> void:
+	last_facing_direction = direction
+
+	if abs(direction.x) > abs(direction.y):
+		if direction.x > 0.0:
+			player_sprite.texture = PLAYER_TEXTURE_RIGHT
+		else:
+			player_sprite.texture = PLAYER_TEXTURE_LEFT
+		return
+
+	if direction.y < 0.0:
+		player_sprite.texture = PLAYER_TEXTURE_UP
+	else:
+		player_sprite.texture = PLAYER_TEXTURE_DOWN

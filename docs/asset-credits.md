@@ -15,9 +15,14 @@
 | Asset name | Creator | Source URL | License | Usage location |
 | --- | --- | --- | --- | --- |
 | `player_topdown.svg` | Project / Codex-assisted internal draft | project-generated | Internal project asset | `scenes/player/Player.tscn` |
+| `player_down.svg` | Project / Codex-assisted internal draft | project-generated | Internal project asset | `scenes/player/Player.tscn` |
+| `player_up.svg` | Project / Codex-assisted internal draft | project-generated | Internal project asset | `scripts/player/Player.gd` |
+| `player_left.svg` | Project / Codex-assisted internal draft | project-generated | Internal project asset | `scripts/player/Player.gd` |
+| `player_right.svg` | Project / Codex-assisted internal draft | project-generated | Internal project asset | `scripts/player/Player.gd` |
 | `room_floor.svg` | Project / Codex-assisted internal draft | project-generated | Internal project asset | `scenes/rooms/Room55516.tscn` |
 | `wall_panel_horizontal.svg` | Project / Codex-assisted internal draft | project-generated | Internal project asset | `scenes/rooms/Room55516.tscn` |
 | `wall_panel_vertical.svg` | Project / Codex-assisted internal draft | project-generated | Internal project asset | `scenes/rooms/Room55516.tscn` |
+| `corridor_threshold.svg` | Project / Codex-assisted internal draft | project-generated | Internal project asset | `scenes/rooms/Room55516.tscn` |
 | `fluorescent_light.svg` | Project / Codex-assisted internal draft | project-generated | Internal project asset | `scenes/rooms/Room55516.tscn` |
 | `monitor_glow.svg` | Project / Codex-assisted internal draft | project-generated | Internal project asset | `scenes/rooms/Room55516.tscn` |
 | `computer_desk.svg` | Project / Codex-assisted internal draft | project-generated | Internal project asset | `scenes/rooms/Room55516.tscn` |
