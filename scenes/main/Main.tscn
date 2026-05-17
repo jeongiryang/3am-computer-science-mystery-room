@@ -19,3 +19,26 @@ position = Vector2(640, 360)
 [node name="DialogueBox" parent="." instance=ExtResource("3_dialogue_box")]
 
 [node name="PasswordInput" parent="." instance=ExtResource("5_password_input")]
+
+[node name="HintLayer" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="HintPanel" type="Panel" parent="HintLayer"]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 420.0
+offset_bottom = 104.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HintLayer/HintPanel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 12.0
+offset_right = -16.0
+offset_bottom = -12.0
+
+[node name="HintLabel" type="Label" parent="HintLayer/HintPanel/MarginContainer"]
+layout_mode = 2
+text = "이동: WASD 또는 방향키\n조사/확인: E 또는 Space"
+autowrap_mode = 3

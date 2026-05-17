@@ -6,10 +6,12 @@ extends Area2D
 @export var visual_color: Color = Color(0.8, 0.8, 0.8, 1.0)
 
 @onready var visual: Polygon2D = $Visual
+@onready var object_label: Label = $ObjectLabel
 
 func _ready() -> void:
 	add_to_group("inspectable")
 	visual.color = visual_color
+	object_label.text = object_name
 
 func inspect() -> String:
 	if object_id == "exit_door" and _is_exit_door_unlocked():

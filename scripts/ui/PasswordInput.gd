@@ -32,6 +32,7 @@ func open() -> void:
 
 func close() -> void:
 	panel.visible = false
+	input_line.release_focus()
 
 func is_open() -> bool:
 	return panel.visible
@@ -71,6 +72,6 @@ func _submit_password() -> void:
 			dialogue.show_message("잠금이 해제되었다.")
 		return
 
-	feedback_label.text = "비밀번호가 맞지 않는다."
+	feedback_label.text = "비밀번호가 맞지 않는다. 다시 입력해 보자."
 	input_line.select_all()
 	input_line.grab_focus()

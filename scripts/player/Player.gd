@@ -25,6 +25,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 
 	if _is_password_input_open():
+		get_viewport().set_input_as_handled()
 		return
 
 	var dialogue = _get_dialogue_box()
