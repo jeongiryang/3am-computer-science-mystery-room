@@ -14,5 +14,13 @@ script = ExtResource("1_interactable_script")
 color = Color(0.8, 0.8, 0.8, 1)
 polygon = PackedVector2Array(-48, -32, 48, -32, 48, 32, -48, 32)
 
+[node name="ObjectLabel" type="Label" parent="."]
+offset_left = -56.0
+offset_top = 36.0
+offset_right = 56.0
+offset_bottom = 60.0
+text = ""
+horizontal_alignment = 1
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_interactable")
