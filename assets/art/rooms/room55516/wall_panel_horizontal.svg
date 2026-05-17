@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1072" height="48" viewBox="0 0 1072 48">
   <defs>
     <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#101b24"/>
-      <stop offset="0.62" stop-color="#071017"/>
+      <stop offset="0" stop-color="#111d25"/>
+      <stop offset="0.65" stop-color="#071017"/>
       <stop offset="1" stop-color="#020509"/>
     </linearGradient>
   </defs>
@@ -10,12 +10,12 @@
   <rect x="0" y="0" width="1072" height="10" fill="#16242d" opacity="0.82"/>
   <rect x="0" y="34" width="1072" height="14" fill="#020509" opacity="0.86"/>
   <path d="M0 31 H1072" stroke="#3f5b65" stroke-width="3" opacity="0.66"/>
-  <path d="M0 35 H1072" stroke="#6e898c" stroke-width="1" opacity="0.22"/>
-  <g stroke="#1d2e37" opacity="0.58">
-    <path d="M96 3 V43"/><path d="M224 3 V43"/><path d="M352 3 V43"/><path d="M480 3 V43"/>
-    <path d="M608 3 V43"/><path d="M736 3 V43"/><path d="M864 3 V43"/><path d="M992 3 V43"/>
+  <path d="M0 35 H1072" stroke="#6e898c" stroke-width="1" opacity="0.2"/>
+  <g stroke="#1d2e37" opacity="0.42">
+    <path d="M160 3 V43"/><path d="M320 3 V43"/><path d="M480 3 V43"/>
+    <path d="M640 3 V43"/><path d="M800 3 V43"/><path d="M960 3 V43"/>
   </g>
-  <g stroke="#677678" stroke-width="1" opacity="0.16">
+  <g stroke="#677678" stroke-width="1" opacity="0.12">
     <path d="M42 18 H136"/><path d="M710 16 H830"/><path d="M890 27 H1010"/>
   </g>
 </svg>
