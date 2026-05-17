@@ -7,14 +7,17 @@ extends Area2D
 @export var is_progress_clue: bool = false
 @export var state_key: String = ""
 @export var visual_color: Color = Color(0.8, 0.8, 0.8, 1.0)
+@export_range(0.0, 1.0, 0.05) var visual_alpha: float = 1.0
+@export var show_object_label: bool = true
 
 @onready var visual: Polygon2D = $Visual
 @onready var object_label: Label = $ObjectLabel
 
 func _ready() -> void:
 	add_to_group("inspectable")
-	visual.color = visual_color
+	visual.color = Color(visual_color.r, visual_color.g, visual_color.b, visual_alpha)
 	object_label.text = object_name
+	object_label.visible = show_object_label
 
 func inspect() -> String:
 	if object_id == "exit_door" and _is_exit_door_unlocked():
