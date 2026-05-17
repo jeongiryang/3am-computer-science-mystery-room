@@ -379,6 +379,96 @@ Do not delete branches unless explicitly requested.
 
 ---
 
+## Branch and PR Decision Rule
+
+Codex must decide the Git workflow at the start of each task based on task risk and scope.
+
+- If the task is low-risk and centered on documentation, logs, or metadata, Codex may use direct commits on `main`.
+- If the task includes code, Godot scenes, UI behavior, build settings, or core gameplay behavior, Codex must use the Issue + work branch + PR + merge workflow.
+- If the risk level is ambiguous, prefer the PR workflow.
+- If the user explicitly requests a specific workflow, follow that workflow within the safety rules of this file.
+- Do not move into work outside the user-requested scope just because the current workflow allows automation.
+
+---
+
+## Direct Main Push Rule
+
+Codex may commit and push directly to `main` only for low-risk work that the user explicitly allows or that falls under the Low-Risk Direct Commit Work section.
+
+Before a direct `main` push, Codex must:
+
+- confirm the current branch with `git status` or `git branch`
+- confirm that changed files are limited to the low-risk scope
+- review `git diff`
+- run `git diff --check` when possible
+- run `godot --headless --path . --quit` when possible for this Godot project
+- keep unrelated untracked files out of the commit
+
+After a direct `main` push, Codex must:
+
+- confirm the new commit with `git log --oneline --graph`
+- report why direct `main` push was selected
+- include the commit hash and commit message in the final report
+
+If direct `main` push feels unsafe or unclear, use the PR workflow.
+
+---
+
+## PR Required Work
+
+The following work must use Issue creation, a work branch, PR creation, and merge:
+
+- gameplay feature implementation
+- GDScript logic changes
+- Godot scene structure changes
+- UI feature additions or behavior changes
+- core flow changes involving Player, interaction, password, ending, or scene transition
+- Windows export settings
+- Android export settings
+- mobile input support
+- external asset additions
+- build or deployment setting changes
+- large README or documentation rewrites
+- large final report or portfolio documentation work
+- structural changes across multiple files
+- any task where the user explicitly requests a PR
+
+---
+
+## Low-Risk Direct Commit Work
+
+The following work may be committed and pushed directly to `main` when the user allows it or when this file's rules clearly permit it:
+
+- AI simulation log additions
+- documentation typo fixes
+- documentation style normalization
+- small README wording updates
+- minimal `.gitignore` additions
+- Godot `.uid` file tracking cleanup
+- ignoring document-only temporary sidecars such as `screenshots/*.png.import`
+- small additions to project operation rules
+- documentation or metadata cleanup that does not affect existing behavior
+- explanatory documentation additions that do not change code logic
+
+---
+
+## Restricted Operations
+
+Codex must not perform these operations:
+
+- force push
+- `git reset --hard`
+- rebase
+- branch deletion
+- repository deletion
+- modifying files outside the repository
+- modifying user personal files
+- implementing features outside the user's requested scope
+- committing build artifacts
+- committing `.godot/`, `.import/`, `builds/`, or `.vscode/`
+
+---
+
 ## AI Simulation Log Rules
 
 After each Codex-assisted task, add one Markdown log file under:
