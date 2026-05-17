@@ -375,7 +375,7 @@ Do not run destructive Git commands unless explicitly requested.
 
 Do not force push.
 
-Do not delete branches unless explicitly requested.
+Do not delete branches unless explicitly requested or allowed by the Post-Merge Branch Cleanup Rule.
 
 ---
 
@@ -435,6 +435,70 @@ The following work must use Issue creation, a work branch, PR creation, and merg
 
 ---
 
+## GitHub Issue and Pull Request Rule
+
+When a task uses the PR workflow, Codex should keep the GitHub trail clear enough that the user can understand the work from the Issue, PR, commits, and AI simulation log.
+
+For PR workflow tasks, Codex should:
+
+- create a GitHub Issue when the task scope is clear
+- create a work branch from the latest `main`
+- commit only files that belong to the requested scope
+- push the work branch
+- create a PR with a concrete title and body
+- include verification results and manual test steps in the PR body
+- include the AI simulation log path in the PR body
+- merge the PR when verification passes and the user has allowed merge automation
+- prefer squash merge unless the user explicitly requests another allowed merge method
+- follow the Post-Merge Branch Cleanup Rule after merge
+
+Do not close or delete a PR unless the user explicitly requests it. Do not use rebase merge.
+
+---
+
+## Post-Merge Branch Cleanup Rule
+
+When Codex merges a PR, Codex should clean up the work branch when it is safe and allowed.
+
+Default merge behavior:
+
+- prefer squash merge
+- if using GitHub CLI and branch cleanup is allowed, prefer:
+
+```text
+gh pr merge <PR_NUMBER> --squash --delete-branch
+```
+
+Branch cleanup rules:
+
+- If the user explicitly asks to keep the work branch, do not delete the remote or local work branch.
+- If `--delete-branch` is unavailable or fails, report the failure reason in the final report.
+- If remote branch deletion fails, do not force push or use risky commands to remove it.
+- After PR merge, update local `main`:
+
+```text
+git checkout main
+git pull --ff-only origin main
+```
+
+- After PR merge, prune stale remote tracking branches when possible:
+
+```text
+git fetch --prune
+```
+
+- If local work branch cleanup is allowed, first switch away from the work branch and confirm the PR was merged, then use safe deletion only:
+
+```text
+git branch -d <work-branch>
+```
+
+- Do not use `git branch -D` unless the user explicitly requests it.
+- Confirm whether local `main` and `origin/main` match after merge.
+- Always report PR merge status, merge method, remote branch deletion status, local branch deletion status, `git fetch --prune` status, local `main` update status, and any cleanup failure reason.
+
+---
+
 ## Low-Risk Direct Commit Work
 
 The following work may be committed and pushed directly to `main` when the user allows it or when this file's rules clearly permit it:
@@ -452,6 +516,42 @@ The following work may be committed and pushed directly to `main` when the user 
 
 ---
 
+## Allowed Terminal Commands
+
+Codex may use these commands when they fit the current repository task and safety rules:
+
+- `git status`
+- `git diff`
+- `git diff --check`
+- `git log --oneline --graph --decorate`
+- `git branch`
+- `git checkout`
+- `git checkout -b`
+- `git add`
+- `git commit`
+- `git push`
+- `git fetch`
+- `git fetch --prune`
+- `git pull --ff-only origin main`
+- `git branch -d`
+- `gh issue create`
+- `gh issue view`
+- `gh issue list`
+- `gh pr create`
+- `gh pr view`
+- `gh pr status`
+- `gh pr merge --squash`
+- `gh pr merge --squash --delete-branch`
+- `gh pr merge --merge`
+- `godot --version`
+- `godot --headless --path . --quit`
+- repository-local file and folder inspection commands
+- repository-local file and folder creation commands
+
+Only use branch deletion commands under the Post-Merge Branch Cleanup Rule or when the user explicitly requests branch cleanup.
+
+---
+
 ## Restricted Operations
 
 Codex must not perform these operations:
@@ -459,13 +559,32 @@ Codex must not perform these operations:
 - force push
 - `git reset --hard`
 - rebase
-- branch deletion
+- branch deletion outside the Post-Merge Branch Cleanup Rule or explicit user request
 - repository deletion
 - modifying files outside the repository
 - modifying user personal files
 - implementing features outside the user's requested scope
 - committing build artifacts
 - committing `.godot/`, `.import/`, `builds/`, or `.vscode/`
+
+---
+
+## End-of-Run Report Rule
+
+At the end of each task, Codex must write a concise completion report that matches the user-requested report structure.
+
+When a PR is created or merged, the report must include:
+
+- PR merge status
+- merge method
+- remote work branch deletion status
+- local work branch deletion status
+- whether `git fetch --prune` was run
+- whether local `main` was updated to `origin/main`
+- whether local `main` and `origin/main` match
+- cleanup failure reason, if branch cleanup failed or was skipped
+
+For direct `main` commits, report why direct `main` push was selected.
 
 ---
 
