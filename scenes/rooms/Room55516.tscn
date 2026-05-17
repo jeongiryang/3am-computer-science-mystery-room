@@ -16,6 +16,117 @@ position = Vector2(640, 360)
 color = Color(0.12, 0.14, 0.17, 1)
 polygon = PackedVector2Array(-520, -280, 520, -280, 520, 280, -520, 280)
 
+[node name="FloorDetails" type="Node2D" parent="."]
+
+[node name="FloorBase" type="Polygon2D" parent="FloorDetails"]
+color = Color(0.085, 0.105, 0.125, 1)
+polygon = PackedVector2Array(120, 80, 1160, 80, 1160, 640, 120, 640)
+
+[node name="TileVertical01" type="Line2D" parent="FloorDetails"]
+points = PackedVector2Array(224, 80, 224, 640)
+width = 1.0
+default_color = Color(0.18, 0.22, 0.26, 0.34)
+
+[node name="TileVertical02" type="Line2D" parent="FloorDetails"]
+points = PackedVector2Array(328, 80, 328, 640)
+width = 1.0
+default_color = Color(0.18, 0.22, 0.26, 0.28)
+
+[node name="TileVertical03" type="Line2D" parent="FloorDetails"]
+points = PackedVector2Array(432, 80, 432, 640)
+width = 1.0
+default_color = Color(0.18, 0.22, 0.26, 0.34)
+
+[node name="TileVertical04" type="Line2D" parent="FloorDetails"]
+points = PackedVector2Array(536, 80, 536, 640)
+width = 1.0
+default_color = Color(0.18, 0.22, 0.26, 0.28)
+
+[node name="TileVertical05" type="Line2D" parent="FloorDetails"]
+points = PackedVector2Array(640, 80, 640, 640)
+width = 1.0
+default_color = Color(0.18, 0.22, 0.26, 0.38)
+
+[node name="TileVertical06" type="Line2D" parent="FloorDetails"]
+points = PackedVector2Array(744, 80, 744, 640)
+width = 1.0
+default_color = Color(0.18, 0.22, 0.26, 0.28)
+
+[node name="TileVertical07" type="Line2D" parent="FloorDetails"]
+points = PackedVector2Array(848, 80, 848, 640)
+width = 1.0
+default_color = Color(0.18, 0.22, 0.26, 0.34)
+
+[node name="TileVertical08" type="Line2D" parent="FloorDetails"]
+points = PackedVector2Array(952, 80, 952, 640)
+width = 1.0
+default_color = Color(0.18, 0.22, 0.26, 0.28)
+
+[node name="TileVertical09" type="Line2D" parent="FloorDetails"]
+points = PackedVector2Array(1056, 80, 1056, 640)
+width = 1.0
+default_color = Color(0.18, 0.22, 0.26, 0.34)
+
+[node name="TileHorizontal01" type="Line2D" parent="FloorDetails"]
+points = PackedVector2Array(120, 160, 1160, 160)
+width = 1.0
+default_color = Color(0.18, 0.22, 0.26, 0.28)
+
+[node name="TileHorizontal02" type="Line2D" parent="FloorDetails"]
+points = PackedVector2Array(120, 240, 1160, 240)
+width = 1.0
+default_color = Color(0.18, 0.22, 0.26, 0.34)
+
+[node name="TileHorizontal03" type="Line2D" parent="FloorDetails"]
+points = PackedVector2Array(120, 320, 1160, 320)
+width = 1.0
+default_color = Color(0.18, 0.22, 0.26, 0.28)
+
+[node name="TileHorizontal04" type="Line2D" parent="FloorDetails"]
+points = PackedVector2Array(120, 400, 1160, 400)
+width = 1.0
+default_color = Color(0.18, 0.22, 0.26, 0.34)
+
+[node name="TileHorizontal05" type="Line2D" parent="FloorDetails"]
+points = PackedVector2Array(120, 480, 1160, 480)
+width = 1.0
+default_color = Color(0.18, 0.22, 0.26, 0.28)
+
+[node name="TileHorizontal06" type="Line2D" parent="FloorDetails"]
+points = PackedVector2Array(120, 560, 1160, 560)
+width = 1.0
+default_color = Color(0.18, 0.22, 0.26, 0.34)
+
+[node name="WallVisuals" type="Node2D" parent="."]
+
+[node name="TopWallSurface" type="Polygon2D" parent="WallVisuals"]
+color = Color(0.055, 0.07, 0.085, 1)
+polygon = PackedVector2Array(104, 48, 1176, 48, 1176, 96, 104, 96)
+
+[node name="BottomWallSurface" type="Polygon2D" parent="WallVisuals"]
+color = Color(0.045, 0.055, 0.07, 1)
+polygon = PackedVector2Array(104, 624, 1176, 624, 1176, 672, 104, 672)
+
+[node name="LeftWallSurface" type="Polygon2D" parent="WallVisuals"]
+color = Color(0.05, 0.062, 0.078, 1)
+polygon = PackedVector2Array(88, 64, 136, 64, 136, 656, 88, 656)
+
+[node name="RightWallSurface" type="Polygon2D" parent="WallVisuals"]
+color = Color(0.04, 0.05, 0.065, 1)
+polygon = PackedVector2Array(1144, 64, 1192, 64, 1192, 656, 1144, 656)
+
+[node name="CeilingLightGlow" type="Polygon2D" parent="WallVisuals"]
+color = Color(0.74, 0.92, 0.96, 0.1)
+polygon = PackedVector2Array(470, 82, 810, 82, 870, 250, 410, 250)
+
+[node name="CeilingLight" type="Polygon2D" parent="WallVisuals"]
+color = Color(0.62, 0.82, 0.86, 0.62)
+polygon = PackedVector2Array(500, 96, 780, 96, 780, 108, 500, 108)
+
+[node name="ComputerLightSpill" type="Polygon2D" parent="WallVisuals"]
+color = Color(0.08, 0.5, 0.56, 0.14)
+polygon = PackedVector2Array(238, 156, 402, 156, 470, 330, 172, 330)
+
 [node name="RoomLabel" type="Label" parent="."]
 offset_left = 128.0
 offset_top = 88.0
@@ -64,6 +175,35 @@ is_progress_clue = true
 state_key = "has_seen_55516_log"
 visual_color = Color(0.18, 0.43, 0.78, 1)
 
+[node name="ObjectShadow" type="Polygon2D" parent="Inspectables/Computer"]
+z_index = -1
+color = Color(0, 0, 0, 0.28)
+polygon = PackedVector2Array(-82, 34, 84, 34, 70, 48, -92, 48)
+
+[node name="DeskSurface" type="Polygon2D" parent="Inspectables/Computer"]
+color = Color(0.12, 0.16, 0.18, 1)
+polygon = PackedVector2Array(-78, -10, 78, -10, 72, 34, -84, 34)
+
+[node name="MonitorGlow" type="Polygon2D" parent="Inspectables/Computer"]
+color = Color(0.08, 0.62, 0.68, 0.24)
+polygon = PackedVector2Array(-52, -60, 52, -60, 44, -4, -44, -4)
+
+[node name="MonitorBody" type="Polygon2D" parent="Inspectables/Computer"]
+color = Color(0.035, 0.052, 0.065, 1)
+polygon = PackedVector2Array(-46, -54, 46, -54, 46, -8, -46, -8)
+
+[node name="MonitorScreen" type="Polygon2D" parent="Inspectables/Computer"]
+color = Color(0.06, 0.42, 0.48, 1)
+polygon = PackedVector2Array(-36, -46, 36, -46, 36, -16, -36, -16)
+
+[node name="MonitorStand" type="Polygon2D" parent="Inspectables/Computer"]
+color = Color(0.055, 0.07, 0.08, 1)
+polygon = PackedVector2Array(-8, -8, 8, -8, 14, 10, -14, 10)
+
+[node name="Keyboard" type="Polygon2D" parent="Inspectables/Computer"]
+color = Color(0.08, 0.1, 0.11, 1)
+polygon = PackedVector2Array(-48, 12, 48, 12, 56, 24, -56, 24)
+
 [node name="Blackboard" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
 position = Vector2(640, 130)
 object_id = "blackboard"
@@ -73,6 +213,24 @@ repeat_inspection_text = "칠판의 03:00과 55110 표기는 이 건물 안의 �
 is_progress_clue = true
 state_key = "has_seen_55516_blackboard_hint"
 visual_color = Color(0.08, 0.36, 0.22, 1)
+
+[node name="BoardFrame" type="Polygon2D" parent="Inspectables/Blackboard"]
+color = Color(0.035, 0.045, 0.045, 1)
+polygon = PackedVector2Array(-158, -48, 158, -48, 158, 48, -158, 48)
+
+[node name="BoardSurface" type="Polygon2D" parent="Inspectables/Blackboard"]
+color = Color(0.025, 0.16, 0.12, 1)
+polygon = PackedVector2Array(-146, -38, 146, -38, 146, 38, -146, 38)
+
+[node name="ChalkLine01" type="Line2D" parent="Inspectables/Blackboard"]
+points = PackedVector2Array(-112, -16, -28, -16)
+width = 2.0
+default_color = Color(0.74, 0.82, 0.76, 0.62)
+
+[node name="ChalkLine02" type="Line2D" parent="Inspectables/Blackboard"]
+points = PackedVector2Array(26, 8, 104, 8)
+width = 2.0
+default_color = Color(0.7, 0.85, 0.82, 0.52)
 
 [node name="Desk" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
 position = Vector2(480, 400)
@@ -84,6 +242,24 @@ is_progress_clue = true
 state_key = "has_seen_55516_desk_memo"
 visual_color = Color(0.48, 0.31, 0.18, 1)
 
+[node name="ObjectShadow" type="Polygon2D" parent="Inspectables/Desk"]
+z_index = -1
+color = Color(0, 0, 0, 0.24)
+polygon = PackedVector2Array(-88, 44, 90, 44, 72, 58, -104, 58)
+
+[node name="DeskTop" type="Polygon2D" parent="Inspectables/Desk"]
+color = Color(0.24, 0.18, 0.13, 1)
+polygon = PackedVector2Array(-84, -40, 84, -40, 92, 42, -92, 42)
+
+[node name="DeskEdge" type="Line2D" parent="Inspectables/Desk"]
+points = PackedVector2Array(-84, -40, 84, -40, 92, 42, -92, 42, -84, -40)
+width = 2.0
+default_color = Color(0.42, 0.48, 0.5, 0.44)
+
+[node name="MemoPaper" type="Polygon2D" parent="Inspectables/Desk"]
+color = Color(0.72, 0.7, 0.58, 1)
+polygon = PackedVector2Array(18, -20, 58, -16, 52, 18, 12, 12)
+
 [node name="Locker" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
 position = Vector2(930, 300)
 object_id = "locker"
@@ -91,12 +267,53 @@ object_name = "Locker"
 inspection_text = "사물함은 잠겨 있다. 비밀번호가 필요한 것 같다."
 visual_color = Color(0.42, 0.43, 0.48, 1)
 
+[node name="LockerShadow" type="Polygon2D" parent="Inspectables/Locker"]
+z_index = -1
+color = Color(0, 0, 0, 0.24)
+polygon = PackedVector2Array(-58, 76, 64, 76, 50, 92, -72, 92)
+
+[node name="LockerBody" type="Polygon2D" parent="Inspectables/Locker"]
+color = Color(0.25, 0.28, 0.31, 1)
+polygon = PackedVector2Array(-52, -76, 52, -76, 52, 76, -52, 76)
+
+[node name="LockerSplit" type="Line2D" parent="Inspectables/Locker"]
+points = PackedVector2Array(0, -72, 0, 72)
+width = 2.0
+default_color = Color(0.11, 0.14, 0.16, 1)
+
+[node name="LockerVentLeft" type="Line2D" parent="Inspectables/Locker"]
+points = PackedVector2Array(-36, -48, -14, -48, -36, -38, -14, -38)
+width = 1.0
+default_color = Color(0.5, 0.56, 0.6, 0.65)
+
+[node name="LockerVentRight" type="Line2D" parent="Inspectables/Locker"]
+points = PackedVector2Array(14, -48, 36, -48, 14, -38, 36, -38)
+width = 1.0
+default_color = Color(0.5, 0.56, 0.6, 0.65)
+
 [node name="ExitDoor" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
 position = Vector2(1080, 360)
 object_id = "exit_door"
 object_name = "ExitDoor"
 inspection_text = "출입문은 굳게 잠겨 있다. 이 방을 나가려면 단서가 더 필요하다."
 visual_color = Color(0.58, 0.18, 0.18, 1)
+
+[node name="DoorFrame" type="Polygon2D" parent="Inspectables/ExitDoor"]
+color = Color(0.08, 0.07, 0.075, 1)
+polygon = PackedVector2Array(-54, -104, 54, -104, 54, 104, -54, 104)
+
+[node name="DoorPanel" type="Polygon2D" parent="Inspectables/ExitDoor"]
+color = Color(0.18, 0.08, 0.08, 1)
+polygon = PackedVector2Array(-42, -92, 42, -92, 42, 94, -42, 94)
+
+[node name="DoorWarningLine" type="Line2D" parent="Inspectables/ExitDoor"]
+points = PackedVector2Array(-30, -58, 30, -58, 30, -42, -30, -42, -30, -58)
+width = 2.0
+default_color = Color(0.78, 0.18, 0.16, 0.86)
+
+[node name="DoorHandle" type="Polygon2D" parent="Inspectables/ExitDoor"]
+color = Color(0.72, 0.66, 0.45, 1)
+polygon = PackedVector2Array(24, -4, 38, -4, 38, 8, 24, 8)
 
 [node name="Projector" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
 position = Vector2(790, 260)
@@ -108,6 +325,19 @@ is_progress_clue = true
 state_key = "has_seen_55516_projector_signal"
 visual_color = Color(0.2, 0.22, 0.28, 1)
 
+[node name="ProjectorBody" type="Polygon2D" parent="Inspectables/Projector"]
+color = Color(0.12, 0.14, 0.16, 1)
+polygon = PackedVector2Array(-50, -22, 50, -22, 54, 20, -46, 24)
+
+[node name="ProjectorLens" type="Polygon2D" parent="Inspectables/Projector"]
+color = Color(0.08, 0.48, 0.54, 1)
+polygon = PackedVector2Array(28, -10, 54, -6, 54, 10, 28, 14)
+
+[node name="ProjectionCone" type="Polygon2D" parent="Inspectables/Projector"]
+z_index = -1
+color = Color(0.2, 0.76, 0.8, 0.08)
+polygon = PackedVector2Array(50, -8, 164, -56, 172, 72, 50, 10)
+
 [node name="AttendanceSheet" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
 position = Vector2(260, 470)
 object_id = "room55516_attendance_sheet"
@@ -117,6 +347,30 @@ repeat_inspection_text = "출석부의 이동 기록은 5층 복도와 과사무
 is_progress_clue = true
 state_key = "has_seen_55516_attendance_sheet"
 visual_color = Color(0.72, 0.68, 0.52, 1)
+
+[node name="PaperShadow" type="Polygon2D" parent="Inspectables/AttendanceSheet"]
+z_index = -1
+color = Color(0, 0, 0, 0.22)
+polygon = PackedVector2Array(-34, -42, 46, -34, 36, 54, -46, 44)
+
+[node name="PaperBody" type="Polygon2D" parent="Inspectables/AttendanceSheet"]
+color = Color(0.72, 0.7, 0.58, 1)
+polygon = PackedVector2Array(-38, -48, 42, -40, 34, 48, -44, 40)
+
+[node name="PaperLine01" type="Line2D" parent="Inspectables/AttendanceSheet"]
+points = PackedVector2Array(-22, -22, 22, -18)
+width = 1.0
+default_color = Color(0.2, 0.24, 0.26, 0.62)
+
+[node name="PaperLine02" type="Line2D" parent="Inspectables/AttendanceSheet"]
+points = PackedVector2Array(-24, -4, 20, 0)
+width = 1.0
+default_color = Color(0.2, 0.24, 0.26, 0.62)
+
+[node name="PaperLine03" type="Line2D" parent="Inspectables/AttendanceSheet"]
+points = PackedVector2Array(-26, 14, 18, 18)
+width = 1.0
+default_color = Color(0.2, 0.24, 0.26, 0.62)
 
 [node name="Transitions" type="Node2D" parent="."]
 
