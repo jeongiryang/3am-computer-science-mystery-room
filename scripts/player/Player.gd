@@ -38,6 +38,12 @@ func _unhandled_input(event: InputEvent) -> void:
 	if interactable == null or not interactable.has_method("inspect"):
 		return
 
+	if interactable.has_method("transition"):
+		nearby_interactables.clear()
+		interactable.transition()
+		get_viewport().set_input_as_handled()
+		return
+
 	if interactable.has_method("should_open_password_input") and interactable.should_open_password_input():
 		var password_input = _get_password_input()
 		if password_input != null:
@@ -60,6 +66,9 @@ func _on_interaction_area_area_entered(area: Area2D) -> void:
 
 func _on_interaction_area_area_exited(area: Area2D) -> void:
 	nearby_interactables.erase(area)
+
+func clear_nearby_interactables() -> void:
+	nearby_interactables.clear()
 
 func _get_closest_interactable() -> Area2D:
 	var closest: Area2D = null

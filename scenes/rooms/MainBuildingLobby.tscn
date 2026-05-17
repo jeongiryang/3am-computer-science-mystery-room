@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/objects/InspectableObject.tscn" id="1_inspectable_object"]
+[ext_resource type="PackedScene" path="res://scenes/objects/TransitionZone.tscn" id="2_transition_zone"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_horizontal_wall"]
+size = Vector2(1040, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vertical_wall"]
+size = Vector2(32, 560)
+
+[node name="MainBuildingLobby" type="Node2D"]
+
+[node name="RoomArea" type="Polygon2D" parent="."]
+position = Vector2(640, 360)
+color = Color(0.1, 0.12, 0.15, 1)
+polygon = PackedVector2Array(-520, -280, 520, -280, 520, 280, -520, 280)
+
+[node name="RoomLabel" type="Label" parent="."]
+offset_left = 128.0
+offset_top = 88.0
+offset_right = 620.0
+offset_bottom = 144.0
+text = "공과대학 메인 건물 내부\n안내판과 출입 게이트가 남아 있는 로비"
+autowrap_mode = 3
+
+[node name="Walls" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+
+[node name="TopWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(640, 64)
+shape = SubResource("RectangleShape2D_horizontal_wall")
+
+[node name="BottomWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(640, 656)
+shape = SubResource("RectangleShape2D_horizontal_wall")
+
+[node name="LeftWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(104, 360)
+shape = SubResource("RectangleShape2D_vertical_wall")
+
+[node name="RightWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1176, 360)
+shape = SubResource("RectangleShape2D_vertical_wall")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="FromRoom55110" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(180, 500)
+
+[node name="FromServerRoom" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(1060, 360)
+
+[node name="Inspectables" type="Node2D" parent="."]
+
+[node name="BuildingGuide" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(380, 220)
+object_id = "lobby_building_guide"
+object_name = "Building Guide"
+inspection_text = "중앙 안내판에는 서버실 위치가 검은 테이프로 가려져 있다."
+visual_color = Color(0.26, 0.34, 0.42, 1)
+
+[node name="SecurityGate" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(860, 380)
+object_id = "lobby_security_gate"
+object_name = "Security Gate"
+inspection_text = "출입 게이트에는 마지막 통과 기록이 03:00으로 고정되어 있다."
+visual_color = Color(0.2, 0.22, 0.25, 1)
+
+[node name="Transitions" type="Node2D" parent="."]
+
+[node name="ToRoom55110" parent="Transitions" instance=ExtResource("2_transition_zone")]
+position = Vector2(180, 560)
+target_room_id = "room_55110"
+target_spawn_name = "FromLobby"
+transition_name = "55110"
+prompt_text = "55110 강의실로 돌아감."
+visual_color = Color(0.18, 0.38, 0.48, 1)
+
+[node name="ToServerRoom" parent="Transitions" instance=ExtResource("2_transition_zone")]
+position = Vector2(1060, 560)
+target_room_id = "server_room"
+target_spawn_name = "FromLobby"
+transition_name = "서버실"
+prompt_text = "서버실 또는 최종 접근 제한 공간으로 이동함."
+visual_color = Color(0.12, 0.48, 0.62, 1)

@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/objects/InspectableObject.tscn" id="1_inspectable_object"]
+[ext_resource type="PackedScene" path="res://scenes/objects/TransitionZone.tscn" id="2_transition_zone"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_horizontal_wall"]
+size = Vector2(1040, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vertical_wall"]
+size = Vector2(32, 560)
+
+[node name="DepartmentOffice" type="Node2D"]
+
+[node name="RoomArea" type="Polygon2D" parent="."]
+position = Vector2(640, 360)
+color = Color(0.14, 0.13, 0.12, 1)
+polygon = PackedVector2Array(-520, -280, 520, -280, 520, 280, -520, 280)
+
+[node name="RoomLabel" type="Label" parent="."]
+offset_left = 128.0
+offset_top = 88.0
+offset_right = 620.0
+offset_bottom = 144.0
+text = "과사무실\n서류함과 공지판이 남아 있는 중간 단서 공간"
+autowrap_mode = 3
+
+[node name="Walls" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+
+[node name="TopWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(640, 64)
+shape = SubResource("RectangleShape2D_horizontal_wall")
+
+[node name="BottomWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(640, 656)
+shape = SubResource("RectangleShape2D_horizontal_wall")
+
+[node name="LeftWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(104, 360)
+shape = SubResource("RectangleShape2D_vertical_wall")
+
+[node name="RightWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1176, 360)
+shape = SubResource("RectangleShape2D_vertical_wall")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="FromHallway5F" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(220, 360)
+
+[node name="FromStairwell" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(1040, 360)
+
+[node name="Inspectables" type="Node2D" parent="."]
+
+[node name="NoticeBoard" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(380, 220)
+object_id = "office_notice_board"
+object_name = "Notice Board"
+inspection_text = "공지판에는 1층 실습실 예약표와 서버 점검 시간이 겹쳐 붙어 있다."
+visual_color = Color(0.42, 0.34, 0.18, 1)
+
+[node name="Printer" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(860, 420)
+object_id = "office_printer"
+object_name = "Printer"
+inspection_text = "프린터에는 출력이 중단된 출입 기록 문서가 걸려 있다."
+visual_color = Color(0.56, 0.56, 0.54, 1)
+
+[node name="Transitions" type="Node2D" parent="."]
+
+[node name="ToHallway5F" parent="Transitions" instance=ExtResource("2_transition_zone")]
+position = Vector2(180, 560)
+target_room_id = "hallway_5f"
+target_spawn_name = "FromDepartmentOffice"
+transition_name = "5층 복도"
+prompt_text = "5층 복도로 돌아감."
+visual_color = Color(0.2, 0.38, 0.46, 1)
+
+[node name="ToStairwell" parent="Transitions" instance=ExtResource("2_transition_zone")]
+position = Vector2(1060, 560)
+target_room_id = "stairwell"
+target_spawn_name = "FromDepartmentOffice"
+transition_name = "계단"
+prompt_text = "층 이동 구간으로 이동함."
+visual_color = Color(0.28, 0.32, 0.38, 1)

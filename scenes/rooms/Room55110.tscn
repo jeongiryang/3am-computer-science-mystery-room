@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/objects/InspectableObject.tscn" id="1_inspectable_object"]
+[ext_resource type="PackedScene" path="res://scenes/objects/TransitionZone.tscn" id="2_transition_zone"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_horizontal_wall"]
+size = Vector2(1040, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vertical_wall"]
+size = Vector2(32, 560)
+
+[node name="Room55110" type="Node2D"]
+
+[node name="RoomArea" type="Polygon2D" parent="."]
+position = Vector2(640, 360)
+color = Color(0.11, 0.13, 0.16, 1)
+polygon = PackedVector2Array(-520, -280, 520, -280, 520, 280, -520, 280)
+
+[node name="RoomLabel" type="Label" parent="."]
+offset_left = 128.0
+offset_top = 88.0
+offset_right = 620.0
+offset_bottom = 144.0
+text = "55110 | 1층 강의실\n후반 단서와 서버실 접근 이유를 만드는 공간"
+autowrap_mode = 3
+
+[node name="Walls" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+
+[node name="TopWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(640, 64)
+shape = SubResource("RectangleShape2D_horizontal_wall")
+
+[node name="BottomWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(640, 656)
+shape = SubResource("RectangleShape2D_horizontal_wall")
+
+[node name="LeftWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(104, 360)
+shape = SubResource("RectangleShape2D_vertical_wall")
+
+[node name="RightWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1176, 360)
+shape = SubResource("RectangleShape2D_vertical_wall")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="FromStairwell" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(190, 360)
+
+[node name="FromLobby" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(1060, 360)
+
+[node name="Inspectables" type="Node2D" parent="."]
+
+[node name="OldComputer" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(360, 250)
+object_id = "room55110_old_computer"
+object_name = "Old PC"
+inspection_text = "오래된 PC 화면에는 서버실 접근 로그 일부가 남아 있다."
+visual_color = Color(0.12, 0.48, 0.62, 1)
+
+[node name="Whiteboard" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(760, 150)
+object_id = "room55110_whiteboard"
+object_name = "Whiteboard"
+inspection_text = "화이트보드에는 지워지다 만 강의실 번호와 시간표가 겹쳐 보인다."
+visual_color = Color(0.62, 0.64, 0.62, 1)
+
+[node name="Transitions" type="Node2D" parent="."]
+
+[node name="ToStairwell" parent="Transitions" instance=ExtResource("2_transition_zone")]
+position = Vector2(180, 560)
+target_room_id = "stairwell"
+target_spawn_name = "FromRoom55110"
+transition_name = "계단"
+prompt_text = "층 이동 구간으로 돌아감."
+visual_color = Color(0.24, 0.32, 0.38, 1)
+
+[node name="ToLobby" parent="Transitions" instance=ExtResource("2_transition_zone")]
+position = Vector2(1060, 560)
+target_room_id = "main_building_lobby"
+target_spawn_name = "FromRoom55110"
+transition_name = "로비"
+prompt_text = "공과대학 메인 건물 내부로 이동함."
+visual_color = Color(0.16, 0.46, 0.58, 1)

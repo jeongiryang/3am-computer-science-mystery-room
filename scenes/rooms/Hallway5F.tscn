@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/objects/InspectableObject.tscn" id="1_inspectable_object"]
+[ext_resource type="PackedScene" path="res://scenes/objects/TransitionZone.tscn" id="2_transition_zone"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_horizontal_wall"]
+size = Vector2(1040, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vertical_wall"]
+size = Vector2(32, 560)
+
+[node name="Hallway5F" type="Node2D"]
+
+[node name="RoomArea" type="Polygon2D" parent="."]
+position = Vector2(640, 360)
+color = Color(0.09, 0.11, 0.15, 1)
+polygon = PackedVector2Array(-520, -280, 520, -280, 520, 280, -520, 280)
+
+[node name="RoomLabel" type="Label" parent="."]
+offset_left = 128.0
+offset_top = 88.0
+offset_right = 620.0
+offset_bottom = 144.0
+text = "5층 복도\n꺼진 강의실 문과 CCTV가 이어진 긴 복도"
+autowrap_mode = 3
+
+[node name="Walls" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 1
+
+[node name="TopWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(640, 64)
+shape = SubResource("RectangleShape2D_horizontal_wall")
+
+[node name="BottomWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(640, 656)
+shape = SubResource("RectangleShape2D_horizontal_wall")
+
+[node name="LeftWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(104, 360)
+shape = SubResource("RectangleShape2D_vertical_wall")
+
+[node name="RightWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1176, 360)
+shape = SubResource("RectangleShape2D_vertical_wall")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="FromRoom55516" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(180, 360)
+
+[node name="FromDepartmentOffice" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(840, 520)
+
+[node name="Inspectables" type="Node2D" parent="."]
+
+[node name="FloorMap" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(340, 220)
+object_id = "floor_map_5f"
+object_name = "5F Map"
+inspection_text = "5층 안내판에는 55516과 과사무실 방향이 흐릿하게 표시되어 있다."
+visual_color = Color(0.22, 0.34, 0.42, 1)
+
+[node name="CCTV" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(940, 200)
+object_id = "hallway_cctv"
+object_name = "CCTV"
+inspection_text = "복도 CCTV의 작은 상태등이 일정한 간격으로 깜빡이고 있다."
+visual_color = Color(0.16, 0.18, 0.2, 1)
+
+[node name="Transitions" type="Node2D" parent="."]
+
+[node name="ToRoom55516" parent="Transitions" instance=ExtResource("2_transition_zone")]
+position = Vector2(170, 560)
+target_room_id = "room_55516"
+target_spawn_name = "FromHallway5F"
+transition_name = "55516"
+prompt_text = "55516 실습실로 돌아감."
+visual_color = Color(0.18, 0.38, 0.48, 1)
+
+[node name="ToDepartmentOffice" parent="Transitions" instance=ExtResource("2_transition_zone")]
+position = Vector2(760, 560)
+target_room_id = "department_office"
+target_spawn_name = "FromHallway5F"
+transition_name = "과사무실"
+prompt_text = "복도 끝 과사무실로 이동함."
+visual_color = Color(0.32, 0.35, 0.42, 1)
