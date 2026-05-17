@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=4 format=3]
 
 [ext_resource type="PackedScene" path="res://scenes/rooms/LabRoom.tscn" id="1_lab_room"]
 [ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="2_player"]
+[ext_resource type="PackedScene" path="res://scenes/ui/DialogueBox.tscn" id="3_dialogue_box"]
 
 [node name="Main" type="Node2D"]
 
@@ -9,3 +10,5 @@
 
 [node name="Player" parent="." instance=ExtResource("2_player")]
 position = Vector2(640, 360)
+
+[node name="DialogueBox" parent="." instance=ExtResource("3_dialogue_box")]

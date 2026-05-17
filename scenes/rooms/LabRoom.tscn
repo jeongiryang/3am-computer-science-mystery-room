@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/objects/InspectableObject.tscn" id="1_inspectable_object"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_horizontal_wall"]
 size = Vector2(1040, 32)
@@ -32,3 +34,40 @@ shape = SubResource("RectangleShape2D_vertical_wall")
 [node name="RightWall" type="CollisionShape2D" parent="Walls"]
 position = Vector2(1176, 360)
 shape = SubResource("RectangleShape2D_vertical_wall")
+
+[node name="Inspectables" type="Node2D" parent="."]
+
+[node name="Computer" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(320, 220)
+object_id = "computer"
+object_name = "Computer"
+inspection_text = "모니터에는 새벽 3시 00분에 실행된 알 수 없는 로그가 남아 있다."
+visual_color = Color(0.18, 0.43, 0.78, 1)
+
+[node name="Blackboard" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(640, 130)
+object_id = "blackboard"
+object_name = "Blackboard"
+inspection_text = "칠판 한쪽에 숫자처럼 보이는 흔적이 적혀 있다. 아직 의미는 알 수 없다."
+visual_color = Color(0.08, 0.36, 0.22, 1)
+
+[node name="Desk" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(520, 430)
+object_id = "desk"
+object_name = "Desk"
+inspection_text = "책상 위에는 구겨진 메모 조각이 놓여 있다."
+visual_color = Color(0.48, 0.31, 0.18, 1)
+
+[node name="Locker" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(930, 300)
+object_id = "locker"
+object_name = "Locker"
+inspection_text = "사물함은 잠겨 있다. 비밀번호가 필요한 것 같다."
+visual_color = Color(0.42, 0.43, 0.48, 1)
+
+[node name="ExitDoor" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(1080, 360)
+object_id = "exit_door"
+object_name = "ExitDoor"
+inspection_text = "출입문은 굳게 잠겨 있다. 이 방을 나가려면 단서가 더 필요하다."
+visual_color = Color(0.58, 0.18, 0.18, 1)
