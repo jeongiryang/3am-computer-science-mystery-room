@@ -4,6 +4,7 @@
 
 # Documentation screenshots imported by Godot
 screenshots/*.png.import
+screenshots/**/*.png.import
 
 # Exported builds and packaged output
 builds/
