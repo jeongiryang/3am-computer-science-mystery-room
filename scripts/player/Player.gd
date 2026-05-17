@@ -11,7 +11,7 @@ func _ready() -> void:
 	interaction_area.area_exited.connect(_on_interaction_area_area_exited)
 
 func _physics_process(_delta: float) -> void:
-	if _is_dialogue_open():
+	if _is_ui_blocking():
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
@@ -24,6 +24,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not event.is_action_pressed("interact"):
 		return
 
+	if _is_password_input_open():
+		return
+
 	var dialogue = _get_dialogue_box()
 	if dialogue != null and dialogue.is_open():
 		dialogue.hide_message()
@@ -32,6 +35,13 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	var interactable := _get_closest_interactable()
 	if interactable == null or not interactable.has_method("inspect"):
+		return
+
+	if interactable.has_method("should_open_password_input") and interactable.should_open_password_input():
+		var password_input = _get_password_input()
+		if password_input != null:
+			password_input.open()
+			get_viewport().set_input_as_handled()
 		return
 
 	if dialogue != null:
@@ -63,6 +73,16 @@ func _get_closest_interactable() -> Area2D:
 func _get_dialogue_box():
 	return get_tree().get_first_node_in_group("dialogue_box")
 
+func _get_password_input():
+	return get_tree().get_first_node_in_group("password_input")
+
+func _is_password_input_open() -> bool:
+	var password_input = _get_password_input()
+	return password_input != null and password_input.is_open()
+
 func _is_dialogue_open() -> bool:
 	var dialogue = _get_dialogue_box()
 	return dialogue != null and dialogue.is_open()
+
+func _is_ui_blocking() -> bool:
+	return _is_dialogue_open() or _is_password_input_open()

@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="PackedScene" path="res://scenes/rooms/LabRoom.tscn" id="1_lab_room"]
 [ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="2_player"]
 [ext_resource type="PackedScene" path="res://scenes/ui/DialogueBox.tscn" id="3_dialogue_box"]
+[ext_resource type="Script" path="res://scripts/core/GameState.gd" id="4_game_state"]
+[ext_resource type="PackedScene" path="res://scenes/ui/PasswordInput.tscn" id="5_password_input"]
 
 [node name="Main" type="Node2D"]
+
+[node name="GameState" type="Node" parent="."]
+script = ExtResource("4_game_state")
 
 [node name="LabRoom" parent="." instance=ExtResource("1_lab_room")]
 
@@ -12,3 +17,5 @@
 position = Vector2(640, 360)
 
 [node name="DialogueBox" parent="." instance=ExtResource("3_dialogue_box")]
+
+[node name="PasswordInput" parent="." instance=ExtResource("5_password_input")]
