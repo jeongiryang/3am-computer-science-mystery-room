@@ -267,3 +267,9 @@ AI 생성 이미지는 최종 에셋으로 바로 넣기보다 콘셉트 시안,
 고퀄리티 목표를 위해서는 실제 2D 에셋 기반 전환이 필요함. 특히 Player sprite, Room55516 floor/wall, computer/blackboard/desk/locker/door, 조명/그림자 overlay를 먼저 적용해야 함.
 
 구체적인 품질 진단, 에셋 목록, 적용 순서, 야간 순찰자/NPC 이벤트 대비 기준은 [`docs/visual-quality-roadmap.md`](visual-quality-roadmap.md)를 기준으로 관리함.
+
+## 14. Room55516 에셋 기반 적용 1차 메모
+
+Room55516 에셋 기반 적용 1차에서는 `assets/art/characters/player/`, `assets/art/rooms/room55516/`, `assets/art/objects/room55516/`, `assets/art/effects/`에 프로젝트 내부 제작 SVG 초안을 추가함.
+
+적용 방식은 기존 CollisionShape2D와 Area2D를 유지하고, scene의 시각 요소를 Sprite2D 기반 Texture2D로 보강하는 방식임. 이 방식은 기존 상호작용 로직을 보존하면서 Player와 주요 오브젝트가 단순 도형으로 보이는 문제를 줄이는 데 목적이 있음.
