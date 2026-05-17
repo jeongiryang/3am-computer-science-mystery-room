@@ -44,6 +44,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 		return
 
+	if interactable.has_method("should_transition_to_ending") and interactable.should_transition_to_ending():
+		get_viewport().set_input_as_handled()
+		get_tree().change_scene_to_file("res://scenes/main/Ending.tscn")
+		return
+
 	if dialogue != null:
 		dialogue.show_message(interactable.inspect())
 		get_viewport().set_input_as_handled()
