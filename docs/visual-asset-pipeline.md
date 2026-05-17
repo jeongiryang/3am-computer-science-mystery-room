@@ -277,3 +277,5 @@ Room55516 에셋 기반 적용 1차에서는 `assets/art/characters/player/`, `a
 Room55516 에셋 QA polish 단계에서는 기존 SVG를 유지하되 Player, floor, light, monitor glow, 주요 오브젝트의 stroke, shadow, highlight, scene scale을 조정함. Godot이 생성한 실제 게임 에셋용 `.svg.import` sidecar는 해당 SVG와 함께 추적 대상으로 판단함.
 
 Room55516 비주얼 오버홀 1차에서는 Player sprite를 `down`, `up`, `left`, `right` 방향별 SVG로 분리하고, 이동 방향에 따라 texture를 교체하는 방식으로 적용함. 주요 오브젝트 SVG는 윗면/측면/전면, 그림자, 하이라이트를 보강해 단순 사각형 느낌을 줄이는 기준선으로 사용함.
+
+이후 Room55516 탑뷰 일관성 정리에서는 오브젝트별 카메라 시점이 섞이지 않도록 `같은 타일 그리드 위에 놓인 탑뷰 오브젝트` 기준을 우선함. scene 내부의 오래된 placeholder 도형은 가능한 한 숨기고, 실제 화면 표현은 SVG 에셋과 일관된 scale/배치 규칙으로 관리함.

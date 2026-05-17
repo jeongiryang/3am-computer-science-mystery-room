@@ -1,24 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="130" height="188" viewBox="0 0 130 188">
+<svg xmlns="http://www.w3.org/2000/svg" width="126" height="150" viewBox="0 0 126 150">
   <defs>
-    <linearGradient id="front" x1="0" y1="10" x2="0" y2="170" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#3f4a50"/>
-      <stop offset="1" stop-color="#1a2229"/>
+    <linearGradient id="top" x1="0" y1="12" x2="0" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#47545a"/>
+      <stop offset="1" stop-color="#2a3339"/>
     </linearGradient>
-    <linearGradient id="side" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#111820"/>
-      <stop offset="1" stop-color="#070b10"/>
+    <linearGradient id="front" x1="0" y1="52" x2="0" y2="134" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2f3a40"/>
+      <stop offset="1" stop-color="#1a2228"/>
     </linearGradient>
   </defs>
-  <ellipse cx="66" cy="176" rx="56" ry="8" fill="#000000" opacity="0.32"/>
-  <path d="M20 14 H96 L112 28 V168 H20 Z" fill="url(#front)" stroke="#7d8f92" stroke-width="2.2"/>
-  <path d="M96 14 L112 28 V168 L96 158 Z" fill="url(#side)"/>
-  <path d="M58 18 V164" stroke="#0d141a" stroke-width="2.4"/>
-  <path d="M24 154 H96 L112 168 H20 Z" fill="#080c11" opacity="0.54"/>
-  <g stroke="#a2b2b4" stroke-width="1.4" opacity="0.54">
-    <path d="M34 42 H48"/><path d="M34 52 H48"/><path d="M70 42 H86"/><path d="M70 52 H86"/>
+  <ellipse cx="63" cy="140" rx="52" ry="7" fill="#000000" opacity="0.28"/>
+  <rect x="20" y="18" width="86" height="34" rx="3" fill="url(#top)" stroke="#7d8f92" stroke-width="2"/>
+  <rect x="20" y="52" width="86" height="82" rx="2" fill="url(#front)" stroke="#54676b" stroke-width="1.8"/>
+  <path d="M63 20 V132" stroke="#0d141a" stroke-width="2.2"/>
+  <g stroke="#a2b2b4" stroke-width="1.2" opacity="0.54">
+    <path d="M34 70 H50"/><path d="M34 80 H50"/><path d="M76 70 H92"/><path d="M76 80 H92"/>
   </g>
-  <rect x="48" y="86" width="8" height="28" rx="1" fill="#bbc3bb" opacity="0.8"/>
-  <rect x="62" y="86" width="8" height="28" rx="1" fill="#bbc3bb" opacity="0.55"/>
-  <rect x="54" y="124" width="16" height="18" rx="2" fill="#0b1c20" stroke="#7ef1e8" stroke-width="1.2"/>
-  <circle cx="62" cy="133" r="3" fill="#6efff2" opacity="0.82"/>
+  <rect x="50" y="96" width="8" height="24" rx="1" fill="#bbc3bb" opacity="0.78"/>
+  <rect x="68" y="96" width="8" height="24" rx="1" fill="#bbc3bb" opacity="0.58"/>
+  <rect x="55" y="122" width="16" height="14" rx="2" fill="#0b1c20" stroke="#7ef1e8" stroke-width="1.1"/>
+  <circle cx="63" cy="129" r="2.8" fill="#6efff2" opacity="0.78"/>
 </svg>

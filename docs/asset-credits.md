@@ -12,6 +12,8 @@
 
 이번 항목은 외부 다운로드 없이 프로젝트 내부에서 직접 작성한 SVG 기반 초안 에셋임. 공개 배포 전 최종 라이선스 표기는 프로젝트 자체 제작 에셋으로 정리함.
 
+Room55516 관련 SVG는 탑뷰 일관성 정리 단계에서 시점, scale, 배치 규칙에 맞춰 내부 수정함.
+
 | Asset name | Creator | Source URL | License | Usage location |
 | --- | --- | --- | --- | --- |
 | `player_topdown.svg` | Project / Codex-assisted internal draft | project-generated | Internal project asset | `scenes/player/Player.tscn` |
