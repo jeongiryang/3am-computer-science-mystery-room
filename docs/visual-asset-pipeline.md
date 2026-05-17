@@ -259,3 +259,11 @@ AI 생성 이미지는 최종 에셋으로 바로 넣기보다 콘셉트 시안,
 6. 전체 비주얼 QA
 
 각 단계는 별도 Issue와 PR로 진행함. 실제 에셋을 추가하는 단계에서는 `docs/asset-credits.md` 갱신을 같은 PR에 포함함.
+
+## 13. Room55516 이후 비주얼 품질 기준
+
+현재 Godot 기본 도형 기반 비주얼은 최종 에셋이 아니라 블록아웃임. Room55516 비주얼 패스 1차/2차는 레이아웃, 충돌, 오브젝트 위치, 상호작용 흐름을 확인하는 데 의미가 있지만, 고퀄리티 공개용 화면 기준으로는 질감과 실루엣이 부족함.
+
+고퀄리티 목표를 위해서는 실제 2D 에셋 기반 전환이 필요함. 특히 Player sprite, Room55516 floor/wall, computer/blackboard/desk/locker/door, 조명/그림자 overlay를 먼저 적용해야 함.
+
+구체적인 품질 진단, 에셋 목록, 적용 순서, 야간 순찰자/NPC 이벤트 대비 기준은 [`docs/visual-quality-roadmap.md`](visual-quality-roadmap.md)를 기준으로 관리함.
