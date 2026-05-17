@@ -273,3 +273,5 @@ AI 생성 이미지는 최종 에셋으로 바로 넣기보다 콘셉트 시안,
 Room55516 에셋 기반 적용 1차에서는 `assets/art/characters/player/`, `assets/art/rooms/room55516/`, `assets/art/objects/room55516/`, `assets/art/effects/`에 프로젝트 내부 제작 SVG 초안을 추가함.
 
 적용 방식은 기존 CollisionShape2D와 Area2D를 유지하고, scene의 시각 요소를 Sprite2D 기반 Texture2D로 보강하는 방식임. 이 방식은 기존 상호작용 로직을 보존하면서 Player와 주요 오브젝트가 단순 도형으로 보이는 문제를 줄이는 데 목적이 있음.
+
+Room55516 에셋 QA polish 단계에서는 기존 SVG를 유지하되 Player, floor, light, monitor glow, 주요 오브젝트의 stroke, shadow, highlight, scene scale을 조정함. Godot이 생성한 실제 게임 에셋용 `.svg.import` sidecar는 해당 SVG와 함께 추적 대상으로 판단함.
