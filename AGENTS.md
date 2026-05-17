@@ -493,7 +493,18 @@ git fetch --prune
 git branch -d <work-branch>
 ```
 
-- Do not use `git branch -D` unless the user explicitly requests it.
+- A squash merge may cause `git branch -d <work-branch>` to fail because Git does not see the local branch as fully merged.
+- Codex may use `git branch -D <work-branch>` only for local work branch cleanup when all of these conditions are true:
+  - the PR is confirmed as merged
+  - the merge method is confirmed as squash merge or normal merge
+  - the remote work branch is deleted or is the intended cleanup target
+  - local `main` has been updated to the latest `origin/main`
+  - the work is confirmed on `main` through the PR or merge commit
+  - the target branch is not a protected branch such as `main`, `develop`, or `dev`
+  - the target work branch has no uncommitted changes
+- If any condition is not true, do not use `git branch -D`.
+- `git branch -D` is allowed only for local work branch cleanup under this rule.
+- Do not use forced remote branch deletion, force push, `git reset --hard`, or rebase.
 - Confirm whether local `main` and `origin/main` match after merge.
 - Always report PR merge status, merge method, remote branch deletion status, local branch deletion status, `git fetch --prune` status, local `main` update status, and any cleanup failure reason.
 
@@ -534,6 +545,7 @@ Codex may use these commands when they fit the current repository task and safet
 - `git fetch --prune`
 - `git pull --ff-only origin main`
 - `git branch -d`
+- `git branch -D` when all Post-Merge Branch Cleanup Rule conditions are met
 - `gh issue create`
 - `gh issue view`
 - `gh issue list`
@@ -560,6 +572,7 @@ Codex must not perform these operations:
 - `git reset --hard`
 - rebase
 - branch deletion outside the Post-Merge Branch Cleanup Rule or explicit user request
+- forced local branch deletion except for the limited `git branch -D <work-branch>` case allowed by the Post-Merge Branch Cleanup Rule
 - repository deletion
 - modifying files outside the repository
 - modifying user personal files
