@@ -58,15 +58,56 @@ position = Vector2(1040, 360)
 position = Vector2(380, 220)
 object_id = "office_notice_board"
 object_name = "Notice Board"
-inspection_text = "공지판에는 1층 실습실 예약표와 서버 점검 시간이 겹쳐 붙어 있다."
+inspection_text = "공지판에는 1층 실습실 예약표와 서버 점검 시간이 겹쳐 붙어 있다. 55110 예약 칸만 검은 펜으로 두 번 표시되어 있다."
+repeat_inspection_text = "공지판은 55110에서 후반 단서를 찾으라는 표시처럼 보인다."
+is_progress_clue = true
+state_key = "has_seen_office_notice_55110"
 visual_color = Color(0.42, 0.34, 0.18, 1)
 
 [node name="Printer" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
 position = Vector2(860, 420)
 object_id = "office_printer"
 object_name = "Printer"
-inspection_text = "프린터에는 출력이 중단된 출입 기록 문서가 걸려 있다."
+inspection_text = "프린터에는 출력이 중단된 출입 기록 문서가 걸려 있다. 03:00에 55516, 55110, 서버실 접근 요청이 순서대로 찍혀 있다."
+repeat_inspection_text = "출입 기록은 55110을 거쳐 서버실 접근 요청으로 이어진다."
+is_progress_clue = true
+state_key = "has_checked_office_record"
 visual_color = Color(0.56, 0.56, 0.54, 1)
+
+[node name="OfficeComputer" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(620, 250)
+object_id = "office_computer"
+object_name = "Office PC"
+inspection_text = "과사무실 PC에는 'server access pending'이라는 창이 떠 있다. 승인 위치는 55110으로 지정되어 있다."
+repeat_inspection_text = "과사무실 PC의 승인 위치는 여전히 55110으로 표시된다."
+is_progress_clue = true
+state_key = "has_seen_office_computer_approval"
+visual_color = Color(0.16, 0.42, 0.56, 1)
+
+[node name="Phone" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(300, 440)
+object_id = "office_phone"
+object_name = "Phone"
+inspection_text = "전화기 수화기에서 작은 잡음이 난다. 끊어진 안내 방송처럼 '1층... 실습실...'이라는 말만 반복된다."
+state_key = "has_heard_office_phone_event"
+visual_color = Color(0.18, 0.18, 0.2, 1)
+
+[node name="DocumentCabinet" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(1030, 250)
+object_id = "office_document_cabinet"
+object_name = "Document Cabinet"
+inspection_text = "서류함에는 오래된 실습실 배치도가 정리되어 있다. 55110 옆에 서버실 접근 단말 표시가 작게 남아 있다."
+repeat_inspection_text = "서류함 배치도는 55110과 서버실 단말의 관계를 보여 준다."
+is_progress_clue = true
+state_key = "has_seen_office_cabinet_map"
+visual_color = Color(0.32, 0.34, 0.36, 1)
+
+[node name="KeyBox" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(690, 460)
+object_id = "office_key_box"
+object_name = "Key Box"
+inspection_text = "열쇠함은 비어 있다. 55110 표식이 붙은 고리만 비스듬히 흔들리고 있다."
+visual_color = Color(0.46, 0.38, 0.2, 1)
 
 [node name="Transitions" type="Node2D" parent="."]
 

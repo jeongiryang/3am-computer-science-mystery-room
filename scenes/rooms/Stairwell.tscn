@@ -63,7 +63,9 @@ position = Vector2(1060, 220)
 position = Vector2(640, 180)
 object_id = "stairwell_emergency_light"
 object_name = "Emergency Light"
-inspection_text = "비상등은 정상적으로 켜져 있지만, 주변 공기는 유난히 차갑다."
+inspection_text = "비상등은 정상적으로 켜져 있지만, 주변 공기는 유난히 차갑다. 아래층에서 컴퓨터 부팅음 같은 짧은 전자음이 올라온다."
+repeat_inspection_text = "전자음은 1층 방향에서 들린다."
+state_key = "has_heard_stairwell_boot_sound"
 visual_color = Color(0.62, 0.12, 0.12, 1)
 
 [node name="FloorSign" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
@@ -71,7 +73,36 @@ position = Vector2(820, 460)
 object_id = "stairwell_floor_sign"
 object_name = "Floor Sign"
 inspection_text = "층수 표지판의 1F 표시 아래에 55110 방향 화살표가 덧그려져 있다."
+repeat_inspection_text = "덧그려진 화살표는 1층 55110으로 이어진다."
+is_progress_clue = true
+state_key = "has_seen_stairwell_floor_sign"
 visual_color = Color(0.32, 0.36, 0.42, 1)
+
+[node name="StairWindow" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(420, 240)
+object_id = "stairwell_window"
+object_name = "Stair Window"
+inspection_text = "계단 창밖은 완전히 어둡다. 반사된 유리에는 켜진 모니터 빛처럼 푸른 점이 아래층에 비친다."
+visual_color = Color(0.1, 0.26, 0.34, 1)
+
+[node name="EmergencyDoor" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(1040, 360)
+object_id = "stairwell_emergency_door"
+object_name = "Emergency Door"
+inspection_text = "비상문 손잡이는 차갑다. 문 옆 안내판에는 '심야 출입 기록은 1층 단말에서 확인'이라고 적혀 있다."
+repeat_inspection_text = "비상문 안내판은 1층 단말 확인을 가리킨다."
+is_progress_clue = true
+state_key = "has_seen_stairwell_emergency_door_hint"
+visual_color = Color(0.44, 0.22, 0.18, 1)
+
+[node name="FootstepTrace" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(500, 500)
+object_id = "stairwell_footstep_trace"
+object_name = "Footstep Trace"
+inspection_text = "먼지 위에 새 발자국이 남아 있다. 방향은 5층이 아니라 1층으로만 이어진다."
+repeat_inspection_text = "발자국은 1층으로 내려간 뒤 끊긴다."
+state_key = "has_seen_stairwell_footsteps"
+visual_color = Color(0.5, 0.5, 0.46, 1)
 
 [node name="Transitions" type="Node2D" parent="."]
 

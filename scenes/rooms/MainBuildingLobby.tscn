@@ -58,15 +58,38 @@ position = Vector2(1060, 360)
 position = Vector2(380, 220)
 object_id = "lobby_building_guide"
 object_name = "Building Guide"
-inspection_text = "중앙 안내판에는 서버실 위치가 검은 테이프로 가려져 있다."
+inspection_text = "중앙 안내판에는 서버실 위치가 검은 테이프로 가려져 있다. 테이프 가장자리 아래로 'restricted access' 문구가 보인다."
+repeat_inspection_text = "가려진 서버실 표시는 로비 오른쪽 제한 구역과 연결되어 있다."
+is_progress_clue = true
+state_key = "has_seen_lobby_building_guide"
 visual_color = Color(0.26, 0.34, 0.42, 1)
 
 [node name="SecurityGate" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
 position = Vector2(860, 380)
 object_id = "lobby_security_gate"
 object_name = "Security Gate"
-inspection_text = "출입 게이트에는 마지막 통과 기록이 03:00으로 고정되어 있다."
+inspection_text = "출입 게이트에는 마지막 통과 기록이 03:00으로 고정되어 있다. 화면 하단에는 'SERVER ROOM REQUEST ACCEPTED'가 짧게 나타났다 사라진다."
+repeat_inspection_text = "보안 게이트는 서버실 접근 요청이 승인됐음을 보여 준다."
+is_progress_clue = true
+state_key = "has_seen_lobby_security_message"
 visual_color = Color(0.2, 0.22, 0.25, 1)
+
+[node name="LobbyNotice" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(620, 250)
+object_id = "lobby_notice"
+object_name = "Lobby Notice"
+inspection_text = "로비 공지에는 '심야 서버실 출입은 기록 장치에 자동 저장'이라고 적혀 있다."
+repeat_inspection_text = "공지문은 서버실 접근 기록이 남는다는 사실을 알려 준다."
+is_progress_clue = true
+state_key = "has_seen_lobby_notice"
+visual_color = Color(0.42, 0.36, 0.22, 1)
+
+[node name="MainEntrance" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(430, 460)
+object_id = "lobby_main_entrance"
+object_name = "Main Entrance"
+inspection_text = "정문 유리는 안쪽에서 잠겨 있다. 바깥보다 서버실 쪽 복도가 더 밝다."
+visual_color = Color(0.18, 0.24, 0.28, 1)
 
 [node name="Transitions" type="Node2D" parent="."]
 

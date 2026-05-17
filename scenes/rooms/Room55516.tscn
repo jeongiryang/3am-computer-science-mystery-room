@@ -58,21 +58,30 @@ position = Vector2(1030, 530)
 position = Vector2(320, 220)
 object_id = "computer"
 object_name = "Computer"
-inspection_text = "모니터에는 새벽 3시 00분에 실행된 알 수 없는 로그가 남아 있다."
+inspection_text = "모니터에는 새벽 3시 00분에 실행된 알 수 없는 로그가 남아 있다. 로그 끝에는 '5F corridor route opened'라는 문장이 깜빡인다."
+repeat_inspection_text = "새벽 3시 실행 로그는 여전히 남아 있다. 5층 복도를 확인해야 할 것 같다."
+is_progress_clue = true
+state_key = "has_seen_55516_log"
 visual_color = Color(0.18, 0.43, 0.78, 1)
 
 [node name="Blackboard" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
 position = Vector2(640, 130)
 object_id = "blackboard"
 object_name = "Blackboard"
-inspection_text = "칠판 한쪽에 숫자처럼 보이는 흔적이 적혀 있다. 아직 의미는 알 수 없다."
+inspection_text = "칠판 한쪽에 03:00이라는 숫자와 55110이라는 강의실 번호가 겹쳐 적혀 있다."
+repeat_inspection_text = "칠판의 03:00과 55110 표기는 이 건물 안의 다른 실습실을 가리키는 것 같다."
+is_progress_clue = true
+state_key = "has_seen_55516_blackboard_hint"
 visual_color = Color(0.08, 0.36, 0.22, 1)
 
 [node name="Desk" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
 position = Vector2(520, 430)
 object_id = "desk"
 object_name = "Desk"
-inspection_text = "책상 위에는 구겨진 메모 조각이 놓여 있다."
+inspection_text = "책상 위에는 구겨진 메모 조각이 놓여 있다. '과사무실 프린터에서 출입 기록 확인'이라고 적혀 있다."
+repeat_inspection_text = "메모는 과사무실 프린터와 출입 기록을 확인하라는 단서로 보인다."
+is_progress_clue = true
+state_key = "has_seen_55516_desk_memo"
 visual_color = Color(0.48, 0.31, 0.18, 1)
 
 [node name="Locker" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
@@ -88,6 +97,26 @@ object_id = "exit_door"
 object_name = "ExitDoor"
 inspection_text = "출입문은 굳게 잠겨 있다. 이 방을 나가려면 단서가 더 필요하다."
 visual_color = Color(0.58, 0.18, 0.18, 1)
+
+[node name="Projector" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(790, 260)
+object_id = "room55516_projector"
+object_name = "Projector"
+inspection_text = "프로젝터 전원등만 희미하게 켜져 있다. 마지막 입력 신호는 55110 실습실에서 온 것으로 표시된다."
+repeat_inspection_text = "프로젝터 입력 기록은 55110과 이 방이 연결되어 있었음을 보여 준다."
+is_progress_clue = true
+state_key = "has_seen_55516_projector_signal"
+visual_color = Color(0.2, 0.22, 0.28, 1)
+
+[node name="AttendanceSheet" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(260, 470)
+object_id = "room55516_attendance_sheet"
+object_name = "Attendance Sheet"
+inspection_text = "출석부 마지막 줄에는 이름 없이 '03:00 / 5F -> Office'만 적혀 있다."
+repeat_inspection_text = "출석부의 이동 기록은 5층 복도와 과사무실을 차례로 확인하라는 표시처럼 보인다."
+is_progress_clue = true
+state_key = "has_seen_55516_attendance_sheet"
+visual_color = Color(0.72, 0.68, 0.52, 1)
 
 [node name="Transitions" type="Node2D" parent="."]
 

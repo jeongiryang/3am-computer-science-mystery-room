@@ -58,15 +58,44 @@ position = Vector2(840, 520)
 position = Vector2(340, 220)
 object_id = "floor_map_5f"
 object_name = "5F Map"
-inspection_text = "5층 안내판에는 55516과 과사무실 방향이 흐릿하게 표시되어 있다."
+inspection_text = "5층 안내판에는 55516과 과사무실 방향이 흐릿하게 표시되어 있다. 과사무실 옆에는 누군가 붉은 펜으로 원을 그려 두었다."
+repeat_inspection_text = "안내판은 과사무실로 이어지는 동선을 계속 가리키고 있다."
+is_progress_clue = true
+state_key = "has_seen_hallway_floor_map"
 visual_color = Color(0.22, 0.34, 0.42, 1)
 
 [node name="CCTV" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
 position = Vector2(940, 200)
 object_id = "hallway_cctv"
 object_name = "CCTV"
-inspection_text = "복도 CCTV의 작은 상태등이 일정한 간격으로 깜빡이고 있다."
+inspection_text = "복도 CCTV의 작은 상태등이 일정한 간격으로 깜빡인다. 렌즈가 55516 문과 과사무실 문 사이만 반복해서 움직인다."
+repeat_inspection_text = "CCTV는 같은 구간만 감시한다. 누군가 그 동선을 의도적으로 남긴 것 같다."
+is_progress_clue = true
+state_key = "has_seen_hallway_cctv"
 visual_color = Color(0.16, 0.18, 0.2, 1)
+
+[node name="EmergencyLight" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(620, 170)
+object_id = "hallway_emergency_light"
+object_name = "Emergency Light"
+inspection_text = "비상등이 한 번 꺼졌다 켜진다. 복도 끝에서 낮은 전자음이 따라 울린다."
+repeat_inspection_text = "비상등은 안정됐지만 전자음은 복도 끝 과사무실 쪽에서 계속 들린다."
+state_key = "has_seen_hallway_light_event"
+visual_color = Color(0.66, 0.12, 0.12, 1)
+
+[node name="VendingMachine" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(500, 460)
+object_id = "hallway_vending_machine"
+object_name = "Vending Machine"
+inspection_text = "자판기 화면은 꺼져 있는데 결제 단말기만 03:00으로 멈춰 있다."
+visual_color = Color(0.28, 0.32, 0.36, 1)
+
+[node name="ClosedClassroomDoor" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
+position = Vector2(1030, 420)
+object_id = "hallway_closed_classroom_door"
+object_name = "Closed Door"
+inspection_text = "닫힌 강의실 문 안쪽에서는 아무 소리도 들리지 않는다. 문틈 아래로 차가운 흰빛만 새어 나온다."
+visual_color = Color(0.34, 0.26, 0.2, 1)
 
 [node name="Transitions" type="Node2D" parent="."]
 
