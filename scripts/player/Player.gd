@@ -71,6 +71,8 @@ func clear_nearby_interactables() -> void:
 	nearby_interactables.clear()
 
 func _get_closest_interactable() -> Area2D:
+	_prune_invalid_interactables()
+
 	var closest: Area2D = null
 	var closest_distance := INF
 
@@ -84,6 +86,11 @@ func _get_closest_interactable() -> Area2D:
 			closest_distance = distance
 
 	return closest
+
+func _prune_invalid_interactables() -> void:
+	for index in range(nearby_interactables.size() - 1, -1, -1):
+		if not is_instance_valid(nearby_interactables[index]):
+			nearby_interactables.remove_at(index)
 
 func _get_dialogue_box():
 	return get_tree().get_first_node_in_group("dialogue_box")
