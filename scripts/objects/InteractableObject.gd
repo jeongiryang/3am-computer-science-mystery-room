@@ -20,6 +20,9 @@ func inspect() -> String:
 func should_open_password_input() -> bool:
 	return object_id == "exit_door" and not _is_exit_door_unlocked()
 
+func should_transition_to_ending() -> bool:
+	return object_id == "exit_door" and _is_exit_door_unlocked()
+
 func _is_exit_door_unlocked() -> bool:
 	var game_state = get_tree().get_first_node_in_group("game_state")
 	return game_state != null and game_state.is_exit_door_unlocked()
