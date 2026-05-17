@@ -12,4 +12,14 @@ func _ready() -> void:
 	visual.color = visual_color
 
 func inspect() -> String:
+	if object_id == "exit_door" and _is_exit_door_unlocked():
+		return "출입문 잠금은 해제되어 있다. 문은 열릴 수 있을 것 같다."
+
 	return inspection_text
+
+func should_open_password_input() -> bool:
+	return object_id == "exit_door" and not _is_exit_door_unlocked()
+
+func _is_exit_door_unlocked() -> bool:
+	var game_state = get_tree().get_first_node_in_group("game_state")
+	return game_state != null and game_state.is_exit_door_unlocked()
