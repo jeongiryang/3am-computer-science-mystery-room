@@ -22,22 +22,50 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="Panel" type="Panel" parent="CenterContainer"]
+custom_minimum_size = Vector2(820, 360)
 layout_mode = 2
+
+[node name="AccentLine" type="ColorRect" parent="CenterContainer/Panel"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = 5.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 44.0
+offset_top = 42.0
+offset_right = -44.0
+offset_bottom = -38.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
 alignment = 1
 
-[node name="TitleLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="StatusLabel" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "탈출"
+text = "SYSTEM ACCESS LOG"
 horizontal_alignment = 1
 
-[node name="EndingText" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="TitleLabel" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "문이 열렸다"
+horizontal_alignment = 1
+
+[node name="EndingText" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(760, 0)
 layout_mode = 2
 text = "문이 열렸다. 하지만 복도 끝에서 또 다른 컴퓨터 부팅음이 들려온다.\n\n3층 서버실 출입 기록이 확인되었습니다."
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="RestartButton" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="RestartButton" type="Button" parent="CenterContainer/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(180, 46)
 layout_mode = 2
 text = "다시 시작"
