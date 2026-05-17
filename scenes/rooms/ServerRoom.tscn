@@ -60,8 +60,8 @@ position = Vector2(200, 360)
 position = Vector2(500, 300)
 object_id = "server_room_rack"
 object_name = "Server Rack"
-inspection_text = "서버랙의 상태등은 모두 정상처럼 보이지만, 팬 소리는 지나치게 낮게 울린다. 55516과 55110 로그가 같은 줄에서 반복된다."
-repeat_inspection_text = "서버랙은 55516과 55110의 기록을 계속 동기화하고 있다."
+inspection_text = "서버랙 상태등은 정상처럼 보인다. 55516과 55110 로그가 같은 줄에서 반복된다."
+repeat_inspection_text = "서버랙은 두 실습실 기록을 계속 동기화한다."
 is_progress_clue = true
 state_key = "has_seen_server_rack_link"
 visual_color = Color(0.08, 0.34, 0.44, 1)
@@ -77,10 +77,10 @@ state_key = "has_seen_server_room_log"
 visual_color = Color(0.14, 0.54, 0.62, 1)
 
 [node name="AccessTerminal" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
-position = Vector2(340, 430)
+position = Vector2(390, 380)
 object_id = "server_room_access_terminal"
 object_name = "Access Terminal"
-inspection_text = "접근 단말에는 로비 보안 게이트에서 승인된 요청이 대기 중이다. 실행 시간은 03:00으로 고정되어 있다."
+inspection_text = "접근 단말에는 로비에서 승인된 요청이 대기 중이다. 실행 시간은 03:00으로 고정되어 있다."
 repeat_inspection_text = "접근 단말의 승인 요청은 아직 닫히지 않았다."
 is_progress_clue = true
 state_key = "has_seen_server_terminal"
@@ -90,7 +90,7 @@ visual_color = Color(0.12, 0.5, 0.58, 1)
 position = Vector2(650, 460)
 object_id = "server_room_cooling_fan"
 object_name = "Cooling Fan"
-inspection_text = "냉각 팬은 일정한 박자로 회전한다. 소리는 공포스럽기보다 너무 정확해서 불편하다."
+inspection_text = "냉각 팬은 일정한 박자로 회전한다. 너무 정확한 소리가 오히려 불편하다."
 visual_color = Color(0.2, 0.24, 0.28, 1)
 
 [node name="SystemMonitor" parent="Inspectables" instance=ExtResource("1_inspectable_object")]

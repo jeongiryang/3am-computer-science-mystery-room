@@ -63,7 +63,7 @@ position = Vector2(1060, 220)
 position = Vector2(640, 180)
 object_id = "stairwell_emergency_light"
 object_name = "Emergency Light"
-inspection_text = "비상등은 정상적으로 켜져 있지만, 주변 공기는 유난히 차갑다. 아래층에서 컴퓨터 부팅음 같은 짧은 전자음이 올라온다."
+inspection_text = "비상등 아래로 차가운 공기가 흐른다. 아래층에서 짧은 컴퓨터 부팅음이 올라온다."
 repeat_inspection_text = "전자음은 1층 방향에서 들린다."
 state_key = "has_heard_stairwell_boot_sound"
 visual_color = Color(0.62, 0.12, 0.12, 1)
@@ -86,11 +86,11 @@ inspection_text = "계단 창밖은 완전히 어둡다. 반사된 유리에는 
 visual_color = Color(0.1, 0.26, 0.34, 1)
 
 [node name="EmergencyDoor" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
-position = Vector2(1040, 360)
+position = Vector2(1040, 430)
 object_id = "stairwell_emergency_door"
 object_name = "Emergency Door"
-inspection_text = "비상문 손잡이는 차갑다. 문 옆 안내판에는 '심야 출입 기록은 1층 단말에서 확인'이라고 적혀 있다."
-repeat_inspection_text = "비상문 안내판은 1층 단말 확인을 가리킨다."
+inspection_text = "비상문 손잡이는 차갑다. 옆 안내판에는 '심야 기록은 1층 단말 확인'이라고 적혀 있다."
+repeat_inspection_text = "안내판은 1층 단말을 확인하라고 가리킨다."
 is_progress_clue = true
 state_key = "has_seen_stairwell_emergency_door_hint"
 visual_color = Color(0.44, 0.22, 0.18, 1)

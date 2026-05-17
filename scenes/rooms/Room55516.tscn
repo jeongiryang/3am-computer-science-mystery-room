@@ -58,8 +58,8 @@ position = Vector2(1030, 530)
 position = Vector2(320, 220)
 object_id = "computer"
 object_name = "Computer"
-inspection_text = "모니터에는 새벽 3시 00분에 실행된 알 수 없는 로그가 남아 있다. 로그 끝에는 '5F corridor route opened'라는 문장이 깜빡인다."
-repeat_inspection_text = "새벽 3시 실행 로그는 여전히 남아 있다. 5층 복도를 확인해야 할 것 같다."
+inspection_text = "모니터에는 새벽 3시 실행 로그가 남아 있다. 끝줄에는 5층 복도 경로가 열렸다고 적혀 있다."
+repeat_inspection_text = "새벽 3시 로그는 5층 복도를 확인하라고 가리킨다."
 is_progress_clue = true
 state_key = "has_seen_55516_log"
 visual_color = Color(0.18, 0.43, 0.78, 1)
@@ -75,11 +75,11 @@ state_key = "has_seen_55516_blackboard_hint"
 visual_color = Color(0.08, 0.36, 0.22, 1)
 
 [node name="Desk" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
-position = Vector2(520, 430)
+position = Vector2(480, 400)
 object_id = "desk"
 object_name = "Desk"
 inspection_text = "책상 위에는 구겨진 메모 조각이 놓여 있다. '과사무실 프린터에서 출입 기록 확인'이라고 적혀 있다."
-repeat_inspection_text = "메모는 과사무실 프린터와 출입 기록을 확인하라는 단서로 보인다."
+repeat_inspection_text = "메모는 과사무실 프린터를 다시 확인하라고 말한다."
 is_progress_clue = true
 state_key = "has_seen_55516_desk_memo"
 visual_color = Color(0.48, 0.31, 0.18, 1)

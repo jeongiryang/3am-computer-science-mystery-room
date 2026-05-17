@@ -57,9 +57,9 @@ position = Vector2(1060, 360)
 [node name="OldComputer" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
 position = Vector2(360, 250)
 object_id = "room55110_old_computer"
-object_name = "Old PC"
-inspection_text = "오래된 PC 화면에는 서버실 접근 로그 일부가 남아 있다. 승인 코드는 03:00에 생성됐고, 다음 확인 위치는 로비 보안 게이트로 표시된다."
-repeat_inspection_text = "PC의 서버실 접근 로그는 로비 보안 게이트 확인으로 이어진다."
+object_name = "Practice PC"
+inspection_text = "실습용 PC에는 서버실 접근 로그 일부가 남아 있다. 다음 확인 위치는 로비 보안 게이트로 표시된다."
+repeat_inspection_text = "실습용 PC의 로그는 로비 보안 게이트 확인으로 이어진다."
 is_progress_clue = true
 state_key = "has_seen_55110_hint"
 visual_color = Color(0.12, 0.48, 0.62, 1)
@@ -68,8 +68,8 @@ visual_color = Color(0.12, 0.48, 0.62, 1)
 position = Vector2(760, 150)
 object_id = "room55110_whiteboard"
 object_name = "Whiteboard"
-inspection_text = "화이트보드에는 지워지다 만 강의실 번호와 시간표가 겹쳐 보인다. 0300이라는 숫자 아래에 'door test'라는 글자가 남아 있다."
-repeat_inspection_text = "화이트보드의 0300은 기존 출입문 비밀번호 단서와 맞물린다."
+inspection_text = "화이트보드에는 03:00이라는 시간과 'door test'라는 글자가 희미하게 남아 있다."
+repeat_inspection_text = "화이트보드의 03:00 표기는 출입문 장치와 맞물린다."
 is_progress_clue = true
 state_key = "has_seen_55110_password_hint"
 visual_color = Color(0.62, 0.64, 0.62, 1)
@@ -91,11 +91,11 @@ state_key = "has_seen_55110_power_event"
 visual_color = Color(0.7, 0.58, 0.18, 1)
 
 [node name="OldAssignmentPaper" parent="Inspectables" instance=ExtResource("1_inspectable_object")]
-position = Vector2(290, 440)
+position = Vector2(300, 360)
 object_id = "room55110_assignment_paper"
 object_name = "Old Assignment"
 inspection_text = "과제지에는 '출입 로그는 강의실보다 로비 보안 시스템을 우선 확인'이라는 문장이 밑줄쳐져 있다."
-repeat_inspection_text = "과제지는 로비 보안 시스템 확인을 다음 단계로 제시한다."
+repeat_inspection_text = "과제지는 로비 보안 시스템을 다음 단계로 제시한다."
 is_progress_clue = true
 state_key = "has_seen_55110_assignment_hint"
 visual_color = Color(0.68, 0.64, 0.48, 1)
